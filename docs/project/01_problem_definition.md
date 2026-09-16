@@ -1,5 +1,36 @@
 # Problem Definition
 
+## Document Control
+
+| Field | Value                                      |
+|---|--------------------------------------------|
+| Document Title | System Requirements Specification          |
+| Document ID | DAICP-SRS-001                              |
+| Project | Distributed Agentic AI Platform for 5G RCA |
+| Document Type | System Requirements Specification          |
+| Version | 0.1                                        |
+| Status | Draft                                      |
+| Author | Emilio García                              |
+| Owner | Project Engineering                        |
+| Created | 2026-08-28                                 |
+| Last Updated | 2026-09-07                                 |
+| Classification | Internal / Project                         |
+| Applicable Standard | ISO/IEC/IEEE 29148:2018                    |
+
+## Revision History
+
+| Version | Date | Author | Description | Status |
+|---|---|---|---|---|
+| 0.1 | 2026-09-03 | Emilio García | Initial SRS structure | Draft |
+
+## Review and Approval
+
+| Role | Name | Status | Date       |
+|---|---|---|------------|
+| Author | Emilio García | Completed | 2026-09-28 |
+| Technical Reviewer | TBD | Pending | TBD        |
+| Approver | TBD | Pending | TBD        |
+
 ## Context
 
 In telecommunications operations, especially during troubleshooting and Root 
