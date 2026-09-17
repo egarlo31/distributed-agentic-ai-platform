@@ -8,12 +8,12 @@
 | Document ID | DAICP-SRS-001 |
 | Project | Distributed Agentic AI Platform for 5G RCA |
 | Document Type | System Requirements Specification |
-| Version | 0.1 |
+| Version | 0.2 |
 | Status | Draft |
 | Author | Emilio García |
 | Owner | Project Engineering |
 | Created | 2026-09-03 |
-| Last Updated | 2026-09-03 |
+| Last Updated | 2026-09-17 |
 | Classification | Internal / Project |
 | Applicable Standard | ISO/IEC/IEEE 29148:2018 |
 
@@ -22,6 +22,7 @@
 | Version | Date | Author | Description | Status |
 |---|---|---|---|---|
 | 0.1 | 2026-09-03 | Emilio García | Initial SRS structure | Draft |
+| 0.2 | 2026-09-17 | Emilio García | Completed system requirements, data requirements, verification and acceptance criteria, and requirements traceability | In Review |
 
 ## Review and Approval
 
@@ -1305,15 +1306,21 @@ Proposed
 
 ## 8. Data Requirements
 
-### 8.1 Knowledge Base
+### DATA-001 — Knowledge Base Content
 
-The knowledge base shall contain approved and validated technical information
-relevant to telecommunications troubleshooting and Root Cause Analysis.
+**Requirement:**  
+The system knowledge base shall contain approved and validated technical
+information relevant to telecommunications troubleshooting and Root Cause
+Analysis.
+
+The system shall preserve sufficient source and validation information to
+distinguish approved technical knowledge from unvalidated or generated
+information.
 
 Knowledge incorporated into the system should prioritize information associated
 with incidents that have a documented and validated resolution.
 
-The knowledge base may include:
+Approved knowledge sources may include:
 
 - technical documentation;
 - troubleshooting procedures;
@@ -1324,14 +1331,29 @@ The knowledge base may include:
 - telecommunications standards;
 - other approved technical sources.
 
+**Rationale:**  
+The troubleshooting system requires controlled and technically reliable
+knowledge sources to retrieve evidence and support engineering analysis.
+
+**Priority:**  
+Must
+
+**Verification Method:**  
+Data Inspection and Retrieval Test
+
+**Status:**  
+Proposed
+
 ---
 
-### 8.2 Historical Incident Data
+### DATA-002 — Historical Incident Data
 
-Historical incident records shall preserve sufficient information to
-reconstruct the lifecycle of the incident from detection through resolution.
+**Requirement:**  
+Historical incident records used by the system shall preserve sufficient
+information to reconstruct the lifecycle of the incident from detection through
+resolution.
 
-When available, an incident record should contain:
+When available, an incident record shall preserve:
 
 - incident or ticket identifier;
 - detection and reporting timestamps;
@@ -1355,15 +1377,32 @@ When available, an incident record should contain:
 - closure timestamp;
 - troubleshooting and resolution duration.
 
+Relationships between the incident, its technical evidence, engineering
+decisions, actions, and final resolution shall remain identifiable.
+
+**Rationale:**  
+Historical incidents require sufficient technical context to support
+troubleshooting analysis, knowledge retrieval, evaluation, and future reuse.
+
+**Priority:**  
+Must
+
+**Verification Method:**  
+Data Integrity Test and Inspection
+
+**Status:**  
+Proposed
+
 ---
 
-### 8.3 Logs and Alarms
+### DATA-003 — Logs and Alarms
 
-Operational logs and alarm records used by the system shall preserve
-sufficient information to identify the event, its source, affected resource,
-severity, temporal context, and relationship to an incident.
+**Requirement:**  
+Operational logs and alarm records used by the system shall preserve sufficient
+information to identify the event, its source, affected resource, severity,
+temporal context, and relationship to an incident.
 
-When available, alarm records should include:
+When available, alarm records shall preserve:
 
 - unique alarm or event identifier;
 - event timestamp;
@@ -1376,7 +1415,7 @@ When available, alarm records should include:
 - additional descriptive information;
 - associated incident or trouble ticket identifier.
 
-Operational logs should preserve, when available:
+Operational logs shall preserve, when available:
 
 - timestamp;
 - originating system or component;
@@ -1387,13 +1426,27 @@ Operational logs should preserve, when available:
 - associated resource;
 - associated incident identifier.
 
-The system shall maintain the relationship between alarms, logs, incidents,
-and the engineering analysis performed during troubleshooting.
+The system shall maintain identifiable relationships between alarms, logs,
+incidents, and the engineering analysis performed during troubleshooting.
+
+**Rationale:**  
+Logs and alarms provide operational evidence required to reconstruct incident
+behavior and correlate events during Root Cause Analysis.
+
+**Priority:**  
+Must
+
+**Verification Method:**  
+Data Integrity Test and Correlation Test
+
+**Status:**  
+Proposed
 
 ---
 
-### 8.4 Metadata
+### DATA-004 — Metadata and Provenance
 
+**Requirement:**  
 All information incorporated into the knowledge base or associated with an
 incident shall preserve metadata sufficient to support identification,
 traceability, retrieval, validation, and auditing.
@@ -1414,30 +1467,67 @@ Metadata shall include, when applicable:
 - confidentiality classification;
 - relationship to other incidents, documents, alarms, or logs.
 
-Generated information shall be distinguishable from authoritative source
-information.
+System-generated information shall remain distinguishable from authoritative
+source information.
+
+The original source of retrieved technical information shall remain
+identifiable when that information is used as evidence by the system.
+
+**Rationale:**  
+Reliable provenance and metadata are required for source verification,
+traceability, auditing, retrieval, and evaluation of AI-generated outputs.
+
+**Priority:**  
+Must
+
+**Verification Method:**  
+Metadata Inspection and Traceability Test
+
+**Status:**  
+Proposed
 
 ---
 
-### 8.5 Data Quality
+### DATA-005 — Data Quality
 
+**Requirement:**  
 Data used by the system shall be evaluated before being incorporated into the
 knowledge base or evaluation datasets.
 
-Data quality evaluation shall consider whether the information is:
+Data quality evaluation shall consider:
 
-- sufficiently complete to understand the incident and its resolution;
-- technically accurate;
-- internally consistent;
-- relevant to telecommunications troubleshooting;
-- traceable to an identifiable source;
-- representative of real operational problems;
-- associated with a validated resolution when used as a resolved incident;
-- sufficiently detailed to reconstruct the investigation and technical
+- completeness;
+- technical accuracy;
+- internal consistency;
+- relevance to telecommunications troubleshooting;
+- traceability to an identifiable source;
+- representativeness of real operational problems;
+- validation status;
+- sufficient technical detail to reconstruct the investigation and engineering
   decision-making process.
 
-Historical incidents used for system evaluation shall preferably have a known
+Resolved incidents incorporated as validated historical knowledge shall have a
+documented resolution status.
+
+Historical incidents used for Root Cause Analysis evaluation shall have a known
 and validated root cause and resolution.
+
+Data that does not satisfy the quality requirements defined for its intended use
+shall not be treated as validated evaluation or authoritative knowledge data.
+
+**Rationale:**  
+Incomplete, incorrect, or untraceable data may reduce retrieval quality,
+invalidate system evaluation, or cause unsupported troubleshooting
+recommendations.
+
+**Priority:**  
+Must
+
+**Verification Method:**  
+Data Quality Assessment and Inspection
+
+**Status:**  
+Proposed
 
 ## 9. Computational Resource Requirements
 
@@ -1687,9 +1777,8 @@ Proposed
 ### OC-003 — Production Execution Restrictions
 
 **Constraint:**  
-In the initial system, autonomous execution in production shall be limited to
-authorized read-only operations and explicitly approved low-risk reversible
-actions.
+In the initial system, production execution shall be limited to authorized
+read-only operations and engineer-approved low-risk reversible actions.
 
 Medium-risk and high-risk actions shall not be autonomously executed by the
 system.
@@ -2892,7 +2981,7 @@ CR-006
 End-to-End Functional Test
 
 **Acceptance Criteria:**  
-One authenticated engineer shall be able to complete the complete defined MVP
+One authenticated engineer shall be able to complete the defined MVP
 troubleshooting workflow from incident reception to engineering validation.
 
 The workflow shall include, when applicable:
@@ -3100,6 +3189,211 @@ Proposed
 
 ---
 
+### AC-037 — Knowledge Base Content Validation
+
+**Related Requirements:**  
+DATA-001, FR-003, FR-011, INT-DATA-002
+
+**Verification Method:**  
+Data Inspection and Retrieval Test
+
+**Acceptance Criteria:**  
+A representative set of approved technical knowledge shall be incorporated into
+the knowledge base.
+
+The test shall verify that:
+
+- incorporated information originates from an identifiable approved source;
+- source information is preserved;
+- validation status is recorded;
+- technical content can be retrieved through the configured knowledge retrieval
+  mechanism;
+- unvalidated information is not incorrectly identified as validated knowledge;
+- system-generated information remains distinguishable from authoritative
+  technical sources;
+- retrieved knowledge can be traced back to its original source.
+
+The test shall be considered successful when approved knowledge can be stored,
+retrieved, identified, and traced without losing its source or validation
+information.
+
+**Status:**  
+Proposed
+
+---
+
+### AC-038 — Historical Incident Data Integrity
+
+**Related Requirements:**  
+DATA-002, FR-010
+
+**Verification Method:**  
+Data Integrity Test and Inspection
+
+**Acceptance Criteria:**  
+Representative historical incident records shall be evaluated to verify that
+their technical lifecycle can be reconstructed from detection through
+resolution.
+
+For each applicable incident, the test shall verify preservation of:
+
+- incident or ticket identifier;
+- relevant timestamps;
+- affected service, system, or resource;
+- symptoms;
+- alarms and logs;
+- relevant KPIs;
+- technical evidence;
+- diagnostic actions;
+- root-cause hypotheses;
+- validated root cause, when available;
+- remediation actions;
+- engineer decisions and approvals;
+- execution results;
+- final resolution;
+- resolution validation.
+
+Relationships between the incident, supporting evidence, actions, and final
+resolution shall remain identifiable.
+
+The test shall be considered successful when the incident record contains
+sufficient information to reconstruct the engineering troubleshooting process
+without incorrect associations or unintended loss of required information.
+
+**Status:**  
+Proposed
+
+---
+
+### AC-039 — Logs and Alarms Data Integrity
+
+**Related Requirements:**  
+DATA-003, FR-002, INT-DATA-001
+
+**Verification Method:**  
+Data Integrity Test and Correlation Test
+
+**Acceptance Criteria:**  
+Representative log and alarm records shall be ingested and associated with known
+test incidents.
+
+The test shall verify, when applicable, preservation of:
+
+- event identifier;
+- timestamp;
+- source system or network element;
+- affected resource;
+- severity;
+- event or alarm type;
+- message or event content;
+- correlation identifiers;
+- incident or ticket association.
+
+The system shall preserve the relationship between:
+
+- incidents;
+- alarms;
+- logs;
+- affected resources;
+- engineering analysis.
+
+The test shall be considered successful when the test records remain
+identifiable, correctly associated, and temporally traceable after ingestion and
+processing.
+
+**Status:**  
+Proposed
+
+---
+
+### AC-040 — Metadata and Provenance Validation
+
+**Related Requirements:**  
+DATA-004, FR-004, FR-009, NFR-OBS-002
+
+**Verification Method:**  
+Metadata Inspection and Traceability Test
+
+**Acceptance Criteria:**  
+Representative documents, incidents, logs, alarms, and generated analysis
+records shall be inspected to verify preservation of required metadata and
+provenance.
+
+The test shall verify, when applicable:
+
+- unique identifier;
+- source system;
+- source type;
+- creation or occurrence timestamp;
+- ingestion timestamp;
+- information type;
+- affected resource;
+- incident or ticket association;
+- version information;
+- originating owner or system;
+- validation status;
+- confidentiality classification;
+- relationships with other records.
+
+The system shall also verify that:
+
+- authoritative source information is distinguishable from AI-generated
+  information;
+- retrieved evidence can be traced to its originating source;
+- generated analyses preserve references to the evidence used.
+
+The test shall be considered successful when the origin, status, version, and
+relationships of evaluated information can be reconstructed from stored
+metadata.
+
+**Status:**  
+Proposed
+
+---
+
+### AC-041 — Data Quality Validation
+
+**Related Requirements:**  
+DATA-005
+
+**Verification Method:**  
+Data Quality Assessment and Inspection
+
+**Acceptance Criteria:**  
+Representative data intended for the knowledge base or evaluation dataset shall
+be evaluated before being classified as validated data.
+
+The evaluation shall consider:
+
+- completeness;
+- technical accuracy;
+- internal consistency;
+- relevance;
+- source traceability;
+- validation status;
+- representativeness of telecommunications troubleshooting scenarios;
+- sufficient technical detail for the intended use.
+
+Historical incidents used for Root Cause Analysis evaluation shall have:
+
+- an identifiable incident record;
+- a known root cause;
+- a validated root cause;
+- a documented resolution;
+- sufficient evidence to support comparison with system-generated hypotheses.
+
+Data that does not satisfy the mandatory quality conditions established for its
+intended use shall not be classified as validated authoritative knowledge or
+validated evaluation ground truth.
+
+Quantitative quality thresholds may be established after the available datasets
+have been profiled.
+
+**Status:**  
+Proposed
+
+---
+
 ### 11.1 MVP Acceptance Gate
 
 The MVP shall be considered technically validated only if the defined minimum
@@ -3124,49 +3418,58 @@ The MVP shall demonstrate that:
 - [ ] system-assisted information retrieval is faster than the established
       manual baseline;
 - [ ] historical RCA evaluation produces measurable and reproducible results.
+- [ ] historical incident records preserve sufficient information to reconstruct
+      the troubleshooting and resolution process;
+- [ ] logs, alarms, and incidents preserve their required technical
+      relationships;
+- [ ] retrieved evidence preserves identifiable source provenance and metadata;
+- [ ] evaluation incidents satisfy the defined minimum data-quality conditions
+      and contain a validated root cause and resolution.
 
 Final quantitative thresholds for AI quality, performance, and resource
 consumption shall be established after baseline measurement and initial MVP
 benchmarking.
+
+---
 
 ## 12. Requirements Traceability
 
 | Requirement ID | Requirement Name | Source / Origin | Verification Method | Acceptance Criterion | Implementation Component | Test ID | Status |
 |---|---|---|---|---|---|---|---|
 | FR-001 | Incident Detection and Ingestion | Problem Definition — Current Situation: engineers require timely access to incident, error, log, and operational information before troubleshooting can begin. | Inject or submit a known incident through an authorized test source and verify that the system receives, identifies, timestamps, associates, and presents the incident correctly. | AC-001 | TBD | TBD | Proposed |
-| FR-003 | Technical Knowledge Retrieval | Problem Definition — Problem Statement / Need: engineers spend significant time manually locating historical and technical information distributed across multiple sources. | Provide incidents with known relevant documentation and verify that the system retrieves the expected technical sources and records retrieval time. | AC-002 | TBD | TBD | Proposed |
-| FR-007 | Engineer Approval | Project Scope / Operational Constraints: the system is not fully autonomous and operational changes may affect production infrastructure; therefore, human authorization is required. | Attempt an operational action without approval, after rejection, and after valid engineer approval. Verify that execution occurs only after valid authorization. | AC-006 | TBD | TBD | Proposed |
-| FR-012 | Engineer Emergency Stop | Project Scope / Safety Need: an engineer must retain operational control while the agent performs authorized actions. | Start an agent or tool task in a controlled environment, activate the emergency stop, and verify that execution is interrupted and the event is recorded. | AC-008 | TBD | TBD | Proposed |
-| NFR-PERF-001 | Information Retrieval Performance | Problem Definition — Impact / Need: manual information retrieval increases troubleshooting time and the system is intended to improve operational agility. | Measure engineer-only information retrieval time and system-assisted retrieval time using equivalent incidents, information sources, and task conditions. | AC-009 | TBD | TBD | Proposed |
 | FR-002 | Incident Context Collection | Problem Definition — Current Situation: engineers require sufficient incident context, including logs, errors, reports, and tickets, before they can investigate possible causes. | Submit an incident containing known contextual information and verify that the system collects and associates the available technical context with the correct incident. | AC-001 | TBD | TBD | Proposed |
+| FR-003 | Technical Knowledge Retrieval | Problem Definition — Problem Statement / Need: engineers spend significant time manually locating historical and technical information distributed across multiple sources. | Provide incidents with known relevant documentation and verify that the system retrieves the expected technical sources and records retrieval time. | AC-002 | TBD | TBD | Proposed |
 | FR-004 | Evidence and Source Presentation | Problem Definition — Need / AI Reliability: engineers must be able to verify the technical evidence supporting AI-generated analyses and recommendations. | Generate an analysis using known source documents and verify that the system presents traceable references that correctly support the generated claims. | AC-003 / AC-004 | TBD | TBD | Proposed |
 | FR-005 | Incident Analysis | Proposed Solution / Need: the copilot must assist engineers in analyzing incident context and identifying possible causes instead of only retrieving documents. | Provide historical incidents with known root causes and compare the generated troubleshooting hypotheses against the validated historical diagnosis. | AC-005 | TBD | TBD | Proposed |
 | FR-006 | Resolution Plan Generation | Project Scope / Human-in-the-Loop: engineers require a clear description of the proposed diagnostic or remediation procedure before deciding whether it should be executed. | Provide an incident for which a known diagnostic procedure exists and verify that the system presents the proposed actions, required tools, expected outcome, and supporting evidence before execution. | AC-005 | TBD | TBD | Proposed |
+| FR-007 | Engineer Approval | Project Scope / Operational Constraints: the system is not fully autonomous and operational changes may affect production infrastructure; therefore, human authorization is required. | Attempt an operational action without approval, after rejection, and after valid engineer approval. Verify that execution occurs only after valid authorization. | AC-006 | TBD | TBD | Proposed |
 | FR-008 | Controlled Tool Execution | Proposed Solution / Operational Constraints: the agent requires tools for diagnostics and troubleshooting, but tool execution must remain within authorized operational boundaries. | Attempt execution of both authorized and unauthorized tools in a controlled environment and verify that only authorized tools can execute and that their results are captured. | AC-012 | TBD | TBD | Proposed |
 | FR-009 | Activity and Decision Logging | Problem Definition — Traceability / Operational Constraints: agent actions, engineer decisions, evidence, tool execution, and failures must be reconstructable for auditing and future analysis. | Perform a complete troubleshooting workflow and inspect the audit records to verify that relevant interactions, approvals, actions, results, and errors were recorded. | AC-007 | TBD | TBD | Proposed |
 | FR-010 | Resolved Incident Registration | Data Requirements / Knowledge Evolution: successfully resolved incidents should become structured historical cases that can support future troubleshooting. | Complete and validate a test incident and verify that it can be stored as a structured historical case with its resolution and associated metadata. | AC-011 | TBD | TBD | Proposed |
 | FR-011 | Knowledge Base Update | Project Scope — Knowledge Evolution: newly validated technical knowledge must become available to future troubleshooting workflows without requiring complete LLM retraining. | Add an approved technical document or validated resolved incident and verify that the new information becomes retrievable through the knowledge system. | AC-011 | TBD | TBD | Proposed |
+| FR-012 | Engineer Emergency Stop | Project Scope / Safety Need: an engineer must retain operational control while the agent performs authorized actions. | Start an agent or tool task in a controlled environment, activate the emergency stop, and verify that execution is interrupted and the event is recorded. | AC-008 | TBD | TBD | Proposed |
 | FR-013 | Authorized Remediation Execution | Project Scope / Operational Constraints: the system may assist with selected remediation actions, but execution must remain within predefined permissions and human-approval controls. | Test remediation actions at different authorization levels and verify that execution occurs only when the action is permitted and the required engineer approval has been provided. | AC-006 | TBD | TBD | Proposed |
-| FR-014 | Recovery Procedure Support | Reliability / Operational Safety: an unsuccessful or unsafe operational change must have a defined recovery path to reduce impact on production infrastructure. | Simulate a failed authorized change in a controlled environment and verify that the system identifies the failure, preserves relevant execution information, and presents the applicable recovery or rollback procedure. | TBD — Recovery Acceptance Criterion required | TBD | TBD | Proposed |
+| FR-014 | Recovery Procedure Support | Reliability / Operational Safety: an unsuccessful or unsafe operational change must have a defined recovery path to reduce impact on production infrastructure. | Simulate a failed authorized change in a controlled environment and verify that the system identifies the failure, preserves relevant execution information, and presents the applicable recovery or rollback procedure. | AC-014 | TBD | TBD | Proposed |
+| NFR-PERF-001 | Information Retrieval Performance | Problem Definition — Impact / Need: manual information retrieval increases troubleshooting time and the system is intended to improve operational agility. | Measure engineer-only information retrieval time and system-assisted retrieval time using equivalent incidents, information sources, and task conditions. | AC-009 | TBD | TBD | Proposed |
 | NFR-REL-001 | Automatic Degraded Operation Mode | Reliability Need: failure of the LLM or agent subsystem must not eliminate the engineer's ability to access centralized technical knowledge. | Disable or isolate the LLM/agent in a controlled environment and verify that the system detects the failure, enters degraded mode, blocks unavailable AI capabilities, and preserves technical knowledge retrieval. | AC-010 | TBD | TBD | Proposed |
-| NFR-REL-002 | Failure Reporting | Reliability / Observability Need: engineers and maintainers must know when AI models, retrieval services, tools, or agents fail. | Inject controlled failures into critical components and verify that each failure is detected, reported, timestamped, and associated with the affected component. | TBD — Failure Reporting Acceptance Criterion required | TBD | TBD | Proposed |
+| NFR-REL-002 | Failure Reporting | Reliability / Observability Need: engineers and maintainers must know when AI models, retrieval services, tools, or agents fail. | Inject controlled failures into critical components and verify that each failure is detected, reported, timestamped, and associated with the affected component. | AC-015 | TBD | TBD | Proposed |
 | NFR-REL-003 | Operational Recovery and Rollback | Operational Safety / Reliability: unsuccessful operational changes must remain traceable and recoverable when a valid recovery mechanism exists. | Execute a controlled change that produces an unacceptable state and verify that the previous state and execution information are preserved and that the defined rollback or recovery mechanism can restore the validated state. | AC-014 | TBD | TBD | Proposed |
-| NFR-SEC-001 | Strong User Authentication | Security Need: the system will provide access to sensitive telecommunications information and operational capabilities that must be restricted to authorized personnel. | Attempt access using valid, invalid, expired, and unauthenticated credentials and verify that protected capabilities are accessible only after successful authentication. | TBD — Authentication Acceptance Criterion required | TBD | TBD | Proposed |
-| NFR-SEC-002 | Role-Based Authorization | Security / Operational Constraints: users with different responsibilities must have different permissions for information, tools, and operational actions. | Test multiple predefined roles and verify that each role can access only the information and actions assigned to its authorization level. | TBD — Authorization Acceptance Criterion required | TBD | TBD | Proposed |
-| NFR-SEC-003 | Multi-Factor Authentication Support | Security Need: access to sensitive operational functions requires stronger protection than a single authentication factor. | Configure the supported MFA mechanism and verify that protected access requires successful completion of the configured authentication factors. | TBD — MFA Acceptance Criterion required | TBD | TBD | Proposed |
+| NFR-SEC-001 | Strong User Authentication | Security Need: the system will provide access to sensitive telecommunications information and operational capabilities that must be restricted to authorized personnel. | Attempt access using valid, invalid, expired, and unauthenticated credentials and verify that protected capabilities are accessible only after successful authentication. | AC-016 | TBD | TBD | Proposed |
+| NFR-SEC-002 | Role-Based Authorization | Security / Operational Constraints: users with different responsibilities must have different permissions for information, tools, and operational actions. | Test multiple predefined roles and verify that each role can access only the information and actions assigned to its authorization level. | AC-017 | TBD | TBD | Proposed |
+| NFR-SEC-003 | Multi-Factor Authentication Support | Security Need: access to sensitive operational functions requires stronger protection than a single authentication factor. | Configure the supported MFA mechanism and verify that protected access requires successful completion of the configured authentication factors. | AC-018 | TBD | TBD | Proposed |
 | NFR-SAF-001 | Human Override | Project Scope / Safety Need: engineers must retain operational control over agent and tool execution. | Start an authorized agent or tool task, activate the emergency stop control, and verify that execution is interrupted whenever technically possible and that the event is recorded. | AC-008 | TBD | TBD | Proposed |
-| NFR-SAF-002 | Controlled Operational Changes | Project Scope / Operational Constraints: AI components must not autonomously perform operational changes outside explicitly authorized boundaries. | Attempt read-only, low-risk, medium-risk, and unauthorized actions and verify that the system applies the corresponding execution and approval restrictions. | AC-006 | TBD | TBD | Proposed |
-| NFR-SCAL-001 | Computational Scalability | Project Scope — Scalability: the system should be able to use additional CPU, GPU, memory, and storage capacity without complete architectural redesign. | Deploy or configure a system component with increased computational resources and verify that the additional resources can be utilized without changing the core application architecture. | TBD — Computational Scalability Acceptance Criterion required | TBD | TBD | Proposed |
-| NFR-SCAL-002 | Service Scalability | Project Scope — Future Capabilities: a production-oriented deployment may need to support increased data volume, workloads, and concurrent engineers. | Execute controlled load tests with increasing concurrent requests or users and measure system behavior, latency, resource utilization, and failure rate. | TBD — Load and Concurrency Acceptance Criterion required | TBD | TBD | Proposed |
-| NFR-MAIN-001 | Component Modularity | Project Scope — Maintainability: AI models, retrieval systems, tools, and data-processing components must be replaceable or updatable without complete reconstruction of the platform. | Replace or substitute a defined component through its documented interface and verify that unaffected components continue operating without modification to their core logic. | TBD — Modularity Acceptance Criterion required | TBD | TBD | Proposed |
-| NFR-PORT-001 | Local Deployment | Technical Constraints / Project Scope: the system must initially operate on authorized local engineering infrastructure. | Deploy the MVP on the defined primary workstation and execute the complete MVP troubleshooting workflow. | AC-013 | TBD | TBD | Proposed |
-| NFR-PORT-002 | Cloud Deployment Readiness | Project Scope — Scalability and Future Capabilities: workloads may later need to migrate from engineering workstations to cloud infrastructure. | Review the architecture and perform a controlled deployment of core services in a cloud-compatible environment without redesigning the core application logic. | TBD — Cloud Portability Acceptance Criterion required | TBD | TBD | Proposed |
-| NFR-PORT-003 | Remote Client Access | Project Scope / Remote Engineering Need: authorized engineers may require access from portable devices to a centralized deployment. | Connect an authorized remote client to a centralized test deployment and verify authentication, encrypted communication, access control, and troubleshooting functionality. | TBD — Remote Access Acceptance Criterion required | TBD | TBD | Proposed |
+| NFR-SAF-002 | Controlled Operational Changes | Project Scope / Operational Constraints: AI components must not autonomously perform operational changes outside explicitly authorized boundaries. | Attempt read-only, low-risk, medium-risk, and unauthorized actions and verify that the system applies the corresponding execution and approval restrictions. | AC-006 / AC-032 | TBD | TBD | Proposed |
+| NFR-SCAL-001 | Computational Scalability | Project Scope — Scalability: the system should be able to use additional CPU, GPU, memory, and storage capacity without complete architectural redesign. | Deploy or configure a system component with increased computational resources and verify that the additional resources can be utilized without changing the core application architecture. | AC-019 | TBD | TBD | Proposed |
+| NFR-SCAL-002 | Service Scalability | Project Scope — Future Capabilities: a production-oriented deployment may need to support increased data volume, workloads, and concurrent engineers. | Execute controlled load tests with increasing concurrent requests or users and measure system behavior, latency, resource utilization, and failure rate. | AC-020 | TBD | TBD | Proposed |
+| NFR-MAIN-001 | Component Modularity | Project Scope — Maintainability: AI models, retrieval systems, tools, and data-processing components must be replaceable or updatable without complete reconstruction of the platform. | Replace or substitute a defined component through its documented interface and verify that unaffected components continue operating without modification to their core logic. | AC-021 | TBD | TBD | Proposed |
+| NFR-PORT-001 | Local Deployment | Technical Constraints / Project Scope: the system must initially operate on authorized local engineering infrastructure. | Deploy the MVP on the defined primary workstation and execute the complete MVP troubleshooting workflow. | AC-013 / AC-030 | TBD | TBD | Proposed |
+| NFR-PORT-002 | Cloud Deployment Readiness | Project Scope — Scalability and Future Capabilities: workloads may later need to migrate from engineering workstations to cloud infrastructure. | Review the architecture and perform a controlled deployment of core services in a cloud-compatible environment without redesigning the core application logic. | AC-022 | TBD | TBD | Proposed |
+| NFR-PORT-003 | Remote Client Access | Project Scope / Remote Engineering Need: authorized engineers may require access from portable devices to a centralized deployment. | Connect an authorized remote client to a centralized test deployment and verify authentication, encrypted communication, access control, and troubleshooting functionality. | AC-023 | TBD | TBD | Proposed |
 | NFR-OBS-001 | System Metrics | Evaluation Need: the project must measure whether the system operates correctly, efficiently, and within available computational resources. | Execute the defined MVP workload and verify that operational metrics for latency, system health, resource utilization, and relevant AI-assisted activities are collected. | AC-013 | TBD | TBD | Proposed |
 | NFR-OBS-002 | Audit Trail | Governance / Traceability Need: significant user, agent, tool, approval, evidence, and error events must be reconstructable. | Execute a complete controlled troubleshooting workflow and verify that the resulting audit trail contains the required sequence of users, evidence, approvals, actions, results, errors, and timestamps. | AC-007 | TBD | TBD | Proposed |
 | NFR-RES-001 | Primary Workstation Compatibility | Technical Constraints: the initial implementation must operate within the computational infrastructure available to the engineering team. | Deploy and execute the defined MVP workload on the primary workstation while measuring CPU, GPU, RAM, VRAM, storage utilization, and latency. | AC-013 | TBD | TBD | Proposed |
-| INT-UI-001 | Engineering Copilot Interface | System Overview / User Need: authorized telecommunications engineers require a centralized interface for interacting with the copilot regardless of the final deployment model. | Deploy the interface in the defined test environment and verify that an authenticated engineer can access the required copilot functions. | TBD — User Interface Availability Acceptance Criterion required | TBD | TBD | Proposed |
-| INT-UI-002 | Conversational Interaction | System Overview / User Need: engineers require a natural-language mechanism for submitting questions, incident descriptions, and troubleshooting requests. | Submit representative engineering prompts and incident descriptions through the conversational interface and verify that the system receives and processes them correctly. | TBD — Conversational Interaction Acceptance Criterion required | TBD | TBD | Proposed |
+| INT-UI-001 | Engineering Copilot Interface | System Overview / User Need: authorized telecommunications engineers require a centralized interface for interacting with the copilot regardless of the final deployment model. | Deploy the interface in the defined test environment and verify that an authenticated engineer can access the required copilot functions. | AC-024 | TBD | TBD | Proposed |
+| INT-UI-002 | Conversational Interaction | System Overview / User Need: engineers require a natural-language mechanism for submitting questions, incident descriptions, and troubleshooting requests. | Submit representative engineering prompts and incident descriptions through the conversational interface and verify that the system receives and processes them correctly. | AC-025 | TBD | TBD | Proposed |
 | INT-UI-003 | Real-Time Incident View | Functional Need / Incident Monitoring: engineers require visibility into incidents, alarms, errors, or operational events received from configured external sources. | Inject test incidents and operational events through the configured source interface and verify that they appear correctly in the incident view with their associated information. | AC-001 | TBD | TBD | Proposed |
 | INT-UI-004 | Evidence and Source Visualization | Problem Definition — Need / AI Traceability: engineers must be able to inspect the evidence and technical sources supporting generated recommendations. | Generate an analysis from known technical sources and verify that the interface exposes the corresponding evidence, references, and source information. | AC-003 | TBD | TBD | Proposed |
 | INT-UI-005 | Action Approval Interface | Human-in-the-Loop / Operational Safety: engineers require an explicit mechanism to review, approve, or reject proposed operational actions before execution. | Present a proposed operational action and verify that the engineer can inspect the action details, approve it, reject it, and that execution follows the selected decision. | AC-006 | TBD | TBD | Proposed |
@@ -3177,31 +3480,36 @@ benchmarking.
 | INT-EXT-004 | Identity and Authentication Integration | Security Need: authentication and authorization must remain separated from AI reasoning and conversational prompts. | Integrate the system with the configured identity service and verify authentication, authorization, session handling, and rejection of invalid access attempts. | AC-016 / AC-017 / AC-018 | TBD | TBD | Proposed |
 | INT-DATA-001 | Incident Data Input | Data Requirements / Functional Need: incident analysis requires technical data from heterogeneous operational sources. | Submit representative structured, semi-structured, and supported unstructured incident data and verify that required fields and associations are preserved. | AC-001 | TBD | TBD | Proposed |
 | INT-DATA-002 | Technical Document Input | Data Requirements — Knowledge Base: the system requires ingestion of approved documentation, procedures, historical cases, standards, and other technical sources. | Ingest representative supported technical documents and verify that their content and metadata become available to the knowledge retrieval subsystem. | AC-011 | TBD | TBD | Proposed |
-| INT-DATA-003 | Structured Analysis Output | Operational Need / Traceability: troubleshooting results must be understandable, traceable, and reusable by engineers and other system components. | Process a known incident and verify that the resulting output includes the applicable incident summary, evidence, hypotheses, recommendations, decisions, execution results, and resolution information. | TBD — Structured Analysis Output Acceptance Criterion required | TBD | TBD | Proposed |
-| INT-DATA-004 | Data Export | Reporting / Historical Knowledge Need: approved troubleshooting results and execution records may need to be incorporated into reports or external operational records. | Generate an approved incident analysis or report and verify that it can be exported in at least one supported structured or human-readable format without loss of required information. | TBD — Data Export Acceptance Criterion required | TBD | TBD | Proposed |
+| INT-DATA-003 | Structured Analysis Output | Operational Need / Traceability: troubleshooting results must be understandable, traceable, and reusable by engineers and other system components. | Process a known incident and verify that the resulting output includes the applicable incident summary, evidence, hypotheses, recommendations, decisions, execution results, and resolution information. | AC-026 | TBD | TBD | Proposed |
+| INT-DATA-004 | Data Export | Reporting / Historical Knowledge Need: approved troubleshooting results and execution records may need to be incorporated into reports or external operational records. | Generate an approved incident analysis or report and verify that it can be exported in at least one supported structured or human-readable format without loss of required information. | AC-027 | TBD | TBD | Proposed |
 | INT-TOOL-001 | Authorized Tool Invocation | Agent Capability / Operational Safety: the agent requires access to diagnostic tools while remaining restricted to explicitly authorized capabilities. | Attempt to invoke authorized and unauthorized tools and verify that only allowlisted tools can execute. | AC-012 | TBD | TBD | Proposed |
-| INT-TOOL-002 | Tool Execution Context | Security / Least-Privilege Need: operational tools must receive only the information and permissions necessary for the authorized task. | Execute an authorized tool under a controlled task and inspect the supplied context and permissions to verify that unnecessary access is not granted. | TBD — Least-Privilege Tool Context Acceptance Criterion required | TBD | TBD | Proposed |
+| INT-TOOL-002 | Tool Execution Context | Security / Least-Privilege Need: operational tools must receive only the information and permissions necessary for the authorized task. | Execute an authorized tool under a controlled task and inspect the supplied context and permissions to verify that unnecessary access is not granted. | AC-028 | TBD | TBD | Proposed |
 | INT-TOOL-003 | Sandbox Execution | Project Scope / Operational Safety: proposed changes should be evaluated in an isolated environment before production execution whenever technically possible. | Execute a representative proposed change in the controlled sandbox and verify that the test does not modify production resources while producing usable validation results. | AC-012 | TBD | TBD | Proposed |
-| INT-TOOL-004 | Sandbox Result Presentation | Human-in-the-Loop / Validation Need: engineers require the results of controlled testing before deciding whether an operational change should proceed. | Execute a test action in the sandbox and verify that the interface presents execution status, relevant output, detected errors, and expected operational effects. | TBD — Sandbox Result Acceptance Criterion required | TBD | TBD | Proposed |
+| INT-TOOL-004 | Sandbox Result Presentation | Human-in-the-Loop / Validation Need: engineers require the results of controlled testing before deciding whether an operational change should proceed. | Execute a test action in the sandbox and verify that the interface presents execution status, relevant output, detected errors, and expected operational effects. | AC-029 | TBD | TBD | Proposed |
 | INT-TOOL-005 | Production Execution Confirmation | Operational Safety: successful sandbox validation does not remove the requirement for final human authorization before production execution. | Complete a successful sandbox validation and verify that production execution remains blocked until a second explicit approval is provided by an authorized engineer. | AC-006 | TBD | TBD | Proposed |
 | INT-TOOL-006 | Tool Execution Result | Traceability / Auditability Need: each tool action must return a result that can be associated with the originating incident and execution request. | Execute an authorized tool and verify that the system captures the execution status, timestamps, output, errors, affected resources, and execution identifier when applicable. | AC-012 | TBD | TBD | Proposed |
+| DATA-001 | Knowledge Base Content | Data / Knowledge Need: the copilot requires approved and validated telecommunications knowledge to support evidence-based retrieval and Root Cause Analysis. | Inspect and retrieve representative approved technical information and verify source identification, validation status, retrieval, and provenance. | AC-037 | TBD | TBD | Proposed |
+| DATA-002 | Historical Incident Data | Data / Evaluation Need: historical incidents must contain sufficient context to reconstruct troubleshooting activities and support future RCA evaluation. | Inspect representative historical incidents and verify that their lifecycle, technical evidence, engineering actions, root cause, and resolution can be reconstructed. | AC-038 | TBD | TBD | Proposed |
+| DATA-003 | Logs and Alarms | Operational Data Need: logs and alarms provide temporal and technical evidence required to analyze and correlate telecommunications incidents. | Ingest representative logs and alarms and verify that event attributes, timestamps, affected resources, and incident relationships are preserved. | AC-039 | TBD | TBD | Proposed |
+| DATA-004 | Metadata and Provenance | Traceability / Governance Need: system information must remain attributable to its source, version, validation status, and related incident or technical record. | Inspect representative records and verify that required metadata, provenance, relationships, and distinction between authoritative and generated information are preserved. | AC-040 | TBD | TBD | Proposed |
+| DATA-005 | Data Quality | AI Evaluation / Knowledge Reliability Need: incomplete, incorrect, or untraceable data could invalidate retrieval and RCA evaluation results. | Evaluate representative knowledge and evaluation records against the defined quality dimensions and verify that unsuitable data is not classified as validated authoritative or evaluation data. | AC-041 | TBD | TBD | Proposed |
 | CR-001 | Primary Local Workstation | Technical Constraints / MVP Scope: the initial system must execute on the primary engineering workstation available to the project. | Deploy the MVP on the defined workstation and execute the complete troubleshooting workflow while monitoring resource consumption and system stability. | AC-013 | TBD | TBD | Proposed |
 | CR-002 | Portable Engineering Workstation | Remote Engineering Need: engineers may require access from a portable workstation with lower local computational capacity. | Access or execute the supported system configuration from the defined portable workstation and verify that the required remote or reduced-capability functions remain available. | AC-023 | TBD | TBD | Proposed |
-| CR-003 | Local-First Deployment | Project Scope / Infrastructure Constraint: the MVP must initially operate without requiring external cloud computing resources. | Disconnect cloud-dependent computational services and execute the defined MVP workflow entirely on the authorized local infrastructure. | TBD — Local-Only Operation Acceptance Criterion required | TBD | TBD | Proposed |
+| CR-003 | Local-First Deployment | Project Scope / Infrastructure Constraint: the MVP must initially operate without requiring external cloud computing resources. | Disconnect cloud-dependent computational services and execute the defined MVP workflow entirely on the authorized local infrastructure. | AC-030 | TBD | TBD | Proposed |
 | CR-004 | Cloud Migration and Computational Offloading | Project Scope — Scalability: workloads that exceed local computational capacity must be able to migrate or be offloaded to cloud infrastructure. | Move or deploy a selected computational workload to a cloud-compatible environment and verify that it can operate without redesigning the core application logic. | AC-022 | TBD | TBD | Proposed |
 | CR-005 | Local Storage Limit | Technical Constraint: models, datasets, indexes, logs, and system artifacts must operate within the 1 TB of storage allocated to the project on the primary workstation. | Deploy the defined MVP dataset, models, indexes, logs, and system components and verify that total project storage remains within the available 1 TB capacity. | AC-013 | TBD | TBD | Proposed |
-| CR-006 | MVP User Capacity | MVP Scope: initial validation requires at least one engineer to complete the full troubleshooting workflow. | Execute the complete MVP workflow with one authenticated engineer and verify that all required functions remain available and stable. | TBD — Single-User MVP Acceptance Criterion required | TBD | TBD | Proposed |
+| CR-006 | MVP User Capacity | MVP Scope: initial validation requires at least one engineer to complete the full troubleshooting workflow. | Execute the complete MVP workflow with one authenticated engineer and verify that all required functions remain available and stable. | AC-031 | TBD | TBD | Proposed |
 | CR-007 | Multi-User Scalability | Future Deployment Need: a production-oriented system may need to support multiple engineers concurrently. | Execute controlled load tests with increasing concurrent authenticated users and measure latency, failures, throughput, and computational resource utilization. | AC-020 | TBD | TBD | Proposed |
 | CR-008 | Computational Component Scalability | Architecture Scalability Need: computationally intensive components must be independently scalable when additional infrastructure becomes available. | Increase the computational resources assigned to a selected component, such as LLM inference or retrieval, and verify that the component can use the additional capacity without requiring redesign of unrelated components. | AC-019 | TBD | TBD | Proposed |
 | OC-001 | Human-Supervised Operation | Project Scope / Safety Need: the system is intended to operate as an engineering copilot and not as a fully autonomous production control platform. | Execute representative troubleshooting scenarios and verify that operational actions requiring authorization cannot proceed without an authorized engineer. | AC-006 | TBD | TBD | Proposed |
-| OC-002 | Operational Action Classification | Operational Safety Need: actions must be differentiated according to their potential operational impact rather than subjective concepts such as simple or small changes. | Classify representative read-only, low-risk, medium-risk, and high-risk actions and verify that the system applies the corresponding control policy to each category. | TBD — Action Classification Acceptance Criterion required | TBD | TBD | Proposed |
-| OC-003 | Production Execution Restrictions | Project Scope / Safety Need: autonomous production execution must remain limited to explicitly authorized low-impact capabilities. | Attempt representative actions from each operational risk category and verify that medium-risk and high-risk actions cannot execute autonomously and that required approvals are enforced. | AC-006 | TBD | TBD | Proposed |
+| OC-002 | Operational Action Classification | Operational Safety Need: actions must be differentiated according to their potential operational impact rather than subjective concepts such as simple or small changes. | Classify representative read-only, low-risk, medium-risk, and high-risk actions and verify that the system applies the corresponding control policy to each category. | AC-032 | TBD | TBD | Proposed |
+| OC-003 | Production Execution Restrictions | Project Scope / Safety Need: production execution must remain limited to explicitly authorized operational capabilities and engineer-approved changes according to their risk classification. | Attempt representative actions from each operational risk category and verify that medium-risk and high-risk actions cannot execute autonomously and that required approvals are enforced. | AC-006 / AC-032 | TBD | TBD | Proposed |
 | OC-004 | Authorized Tool Execution | Security / Operational Safety: agents must not execute arbitrary commands, scripts, APIs, or tools against operational infrastructure. | Attempt execution of approved and non-approved tools and verify that only tools included in the authorized allowlist can execute in the corresponding environment. | AC-012 | TBD | TBD | Proposed |
-| OC-005 | Environment Separation | Operational Safety / Security: development, sandbox, testing, and production activities must remain separated to reduce accidental production impact. | Verify that development and sandbox credentials, resources, and execution paths cannot modify production resources unless explicitly authorized through the production control process. | TBD — Environment Separation Acceptance Criterion required | TBD | TBD | Proposed |
+| OC-005 | Environment Separation | Operational Safety / Security: development, sandbox, testing, and production activities must remain separated to reduce accidental production impact. | Verify that development and sandbox credentials, resources, and execution paths cannot modify production resources unless explicitly authorized through the production control process. | AC-033 | TBD | TBD | Proposed |
 | OC-006 | Authorized Users | Security / Organizational Control: sensitive technical information and operational capabilities must only be available to authenticated personnel with appropriate responsibilities. | Test defined user roles and verify that operational capabilities and technical information are restricted according to assigned permissions. | AC-016 / AC-017 | TBD | TBD | Proposed |
-| OC-007 | Operational Information Access | Security / Data Minimization: the system should access only the information necessary for the authorized troubleshooting task and user role. | Execute representative troubleshooting tasks and inspect accessed data sources to verify that unrelated or unauthorized information is not retrieved. | TBD — Operational Data Access Acceptance Criterion required | TBD | TBD | Proposed |
-| OC-008 | System, Model, and Configuration Versioning | Maintainability / Recovery Need: changes to models, prompts, agents, tools, configurations, and knowledge indexes must remain identifiable and reversible. | Modify a controlled system component, verify that the new version is recorded, and demonstrate that the previous validated version can be identified and restored when supported. | TBD — Versioning and Rollback Acceptance Criterion required | TBD | TBD | Proposed |
+| OC-007 | Operational Information Access | Security / Data Minimization: the system should access only the information necessary for the authorized troubleshooting task and user role. | Execute representative troubleshooting tasks and inspect accessed data sources to verify that unrelated or unauthorized information is not retrieved. | AC-034 | TBD | TBD | Proposed |
+| OC-008 | System, Model, and Configuration Versioning | Maintainability / Recovery Need: changes to models, prompts, agents, tools, configurations, and knowledge indexes must remain identifiable and reversible. | Modify a controlled system component, verify that the new version is recorded, and demonstrate that the previous validated version can be identified and restored when supported. | AC-035 | TBD | TBD | Proposed |
 | OC-009 | Human Override | Project Scope / Safety Need: an authorized engineer must retain the ability to interrupt automated activity during operational troubleshooting. | Start an authorized agent or tool execution, activate the human override mechanism, and verify that execution stops whenever technically possible and that the event is recorded. | AC-008 | TBD | TBD | Proposed |
 | OC-010 | Operational Audit Records | Governance / Traceability Need: significant system activity must be reconstructable for investigation, debugging, auditing, and evaluation. | Execute a complete troubleshooting workflow and verify that the audit record contains the required user, incident, evidence, recommendation, approval, action, tool, result, error, and timestamp information. | AC-007 | TBD | TBD | Proposed |
 | OC-011 | Service Availability | Operational Need / Reliability: engineers should retain access to essential troubleshooting information during maintenance or failure of individual AI components whenever supporting services remain available. | Simulate maintenance or AI-component failure and verify that supported fallback capabilities remain accessible while unavailable functions are clearly reported. | AC-010 | TBD | TBD | Proposed |
-| OC-012 | Organizational Policy Compliance | Security / Governance Need: deployment must conform to the access-control, security, data-management, change-management, and operational policies of the organization using the system. | Review the deployed configuration against the defined organizational control checklist and verify that applicable security, access, data, audit, change-control, and AI-use controls are implemented. | TBD — Organizational Policy Compliance Acceptance Criterion required | TBD | TBD | Proposed |
+| OC-012 | Organizational Policy Compliance | Security / Governance Need: deployment must conform to the access-control, security, data-management, change-management, and operational policies of the organization using the system. | Review the deployed configuration against the defined organizational control checklist and verify that applicable security, access, data, audit, change-control, and AI-use controls are implemented. | AC-036 | TBD | TBD | Proposed |
