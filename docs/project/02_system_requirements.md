@@ -23,14 +23,15 @@
 |---|---|---|---|---|
 | 0.1 | 2026-09-03 | Emilio García | Initial SRS structure | Draft |
 | 0.2 | 2026-09-17 | Emilio García | Completed system requirements, data requirements, verification and acceptance criteria, and requirements traceability | In Review |
+| 1.0 | 2026-09-17 | Emilio García | Approved initial SRS baseline | Approved |
 
 ## Review and Approval
 
 | Role | Name | Status | Date |
 |---|---|---|---|
 | Author | Emilio García | Completed | 2026-09-03 |
-| Technical Reviewer | TBD | Pending | TBD |
-| Approver | TBD | Pending | TBD |
+| Technical Reviewer | Horacio Alberto García Salas | Approved | 2026-09-17 |
+| Approver | Horacio Alberto García Salas | Approved | 2026-09-17 |
 
 ## 1. Purpose
 
