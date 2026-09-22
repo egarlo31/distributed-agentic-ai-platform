@@ -13,7 +13,7 @@
 | Author | Emilio García |
 | Owner | Project Engineering |
 | Created | 2026-09-21 |
-| Last Updated | 2026-09-21 |
+| Last Updated | 2026-09-22 |
 | Classification | Internal / Project |
 
 ## Revision History
@@ -22,14 +22,15 @@
 |---|---|---|---|---|
 | 0.1 | 2026-09-21 | Emilio García | Initial project methodology definition | Draft |
 | 0.2 | 2026-09-22 | Emilio García | Complete project methodology definition | In Review |
+| 1.0 | 2026-09-22 | Emilio García | Approved initial Project Methodology | Approved |
 
 ## Review and Approval
 
 | Role | Name | Status | Date |
 |---|---|---|---|
-| Author | Emilio García | In Progress | TBD |
-| Technical Reviewer | TBD | Pending | TBD |
-| Approver | TBD | Pending | TBD |
+| Author | Emilio García | In Progress | 2026-09-22 |
+| Technical Reviewer | Horacio Alberto García Salas | Approved | 2026-09-22 |
+| Approver | Horacio Alberto García Salas | Approved | 2026-09-22 |
 
 ## 1. Purpose
 
