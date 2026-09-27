@@ -2,20 +2,17 @@
 
 ## Document Control
 
-| Field | Value                                      |
-|---|--------------------------------------------|
-| Document Title | System Requirements Specification          |
-| Document ID | DAICP-SRS-001                              |
+| Field | Value |
+|---|---|
+| Document Title | Problem Definition |
+| Document ID | DAICP-PD-001 |
 | Project | Distributed Agentic AI Platform for 5G RCA |
-| Document Type | System Requirements Specification          |
-| Version | 0.1                                        |
-| Status | Draft                                      |
-| Author | Emilio García                              |
-| Owner | Project Engineering                        |
-| Created | 2026-08-28                                 |
-| Last Updated | 2026-09-07                                 |
-| Classification | Internal / Project                         |
-| Applicable Standard | ISO/IEC/IEEE 29148:2018                    |
+| Document Type | Problem Definition |
+| Version | 0.1 |
+| Status | Draft |
+| Author | Emilio García |
+| Owner | Project Engineering |
+| Applicable Standard | ISO/IEC/IEEE 29148:2018 |
 
 ## Revision History
 
