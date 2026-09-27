@@ -1,2 +1,83 @@
-.idea/
+# ==========================================
+# Raw data
+# ==========================================
+
+data/raw/**
+
+# Keep directory structure and documentation
+!data/raw/**/
+!data/raw/**/README.md
+
+
+# ==========================================
+# Intermediate / generated data
+# ==========================================
+
+data/interim/**
+!data/interim/**/
+!data/interim/**/README.md
+
+data/processed/**
+!data/processed/**/
+!data/processed/**/README.md
+
+
+# ==========================================
+# Models / embeddings / vector stores
+# ==========================================
+
+models/
+embeddings/
+vector_store/
+
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.gguf
+
+
+# ==========================================
+# Python
+# ==========================================
+
+__pycache__/
+*.py[cod]
+
+.venv/
+venv/
+
+
+# ==========================================
+# Environment / secrets
+# ==========================================
+
+.env
+.env.*
+!.env.example
+
+
+# ==========================================
+# Jupyter
+# ==========================================
+
+.ipynb_checkpoints/
+
+
+# ==========================================
+# OS / IDE
+# ==========================================
+
 .DS_Store
+.idea/
+.vscode/
+
+
+# ==========================================
+# Logs / temporary files
+# ==========================================
+
+*.log
+logs/
+tmp/
+.cache/
