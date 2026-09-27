@@ -8,6 +8,7 @@
 - **Access date:** 2026-09-27
 - **License:** Creative Commons Attribution 4.0 International (CC BY 4.0)  
   https://creativecommons.org/licenses/by/4.0/
+- **Failure Family:** F1 — Security / anomalous network activity
 
 ### Role in the Project
 
