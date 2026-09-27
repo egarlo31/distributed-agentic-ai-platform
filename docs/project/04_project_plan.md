@@ -117,256 +117,205 @@ availability affect the active schedule.
 
 ### WP-01 — Project Definition and Planning
 
-| Activity ID | Activity | Deliverable / Exit Criterion | Origin |
-|---|---|---|---|
-| A-101 | Define project problem | Approved Problem Definition | Project Definition |
-| A-102 | Define system requirements | Approved SRS v1.0 | System Requirements |
-| A-103 | Define project methodology | Approved Methodology v1.0 | Project Methodology |
-| A-104 | Define MVP scope | Approved MVP Definition | Project Scope |
-| A-105 | Define evaluation strategy | Initial Evaluation Plan | Evaluation |
-| A-106 | Define high-level system architecture | Architecture baseline | System Architecture |
-| A-107 | Build initial project plan | Approved Project Plan baseline | Project Planning |
+| Activity ID | Activity | Deliverable / Exit Criterion | Origin | Status |
+|---|---|---|---|---|
+| A-101 | Define project problem | Approved Problem Definition | Project Definition | Done |
+| A-102 | Define system requirements | Approved SRS v1.0 | System Requirements | Done |
+| A-103 | Define project methodology | Approved Methodology v1.0 | Project Methodology | Done |
+| A-104 | Define MVP scope | Approved MVP Definition | Project Scope | Pending |
+| A-105 | Define evaluation strategy | Initial Evaluation Plan | Evaluation | Pending |
+| A-106 | Define high-level system architecture | Architecture baseline | System Architecture | Pending |
+| A-107 | Build initial project plan | Approved Project Plan baseline | Project Planning | In Progress |
 
 ### WP-02 — Data and Knowledge Preparation
 
-| Activity ID | Activity | Deliverable / Exit Criterion | Origin |
-|---|---|---|---|
-| A-201 | Identify and confirm project data sources | Approved list of project data sources | Data Requirements / Problem Definition |
-| A-202 | Acquire selected datasets and technical documents | Raw data and document collection available locally | Data Requirements |
-| A-203 | Inspect source structure and content | Initial data/source audit | Data Feasibility |
-| A-204 | Define data inclusion and exclusion criteria | Documented selection criteria | MVP Definition / Evaluation Plan |
-| A-205 | Define data schema and metadata requirements | Initial data and metadata schema | Data Requirements |
-| A-206 | Clean and normalize selected data | Cleaned and normalized dataset/corpus | Data Requirements |
-| A-207 | Extract and preserve source metadata | Metadata associated with every usable source | Traceability Requirements |
-| A-208 | Segment and prepare technical documents for retrieval | Retrieval-ready document units | Retrieval Requirements |
-| A-209 | Build the initial telecommunications knowledge corpus | Versioned initial corpus | FR — Technical Knowledge Retrieval |
-| A-210 | Validate corpus integrity and traceability | Corpus validation report | Verification / Data Requirements |
-| A-211 | Create development and evaluation data partitions | Controlled datasets for development and evaluation | Evaluation Plan / Leakage Control |
-| A-212 | Version and document the prepared corpus | Reproducible corpus version and manifest | Reproducibility Requirements |
+| Activity ID | Activity | Deliverable / Exit Criterion | Origin | Status |
+|---|---|---|---|---|
+| A-201 | Identify and confirm project data sources | Approved list of project data sources | Data Requirements / Problem Definition | Done |
+| A-202 | Acquire selected datasets and technical documents | Raw data and document collection available locally | Data Requirements | Pending |
+| A-203 | Inspect source structure and content | Initial data/source audit | Data Feasibility | Pending |
+| A-204 | Define data inclusion and exclusion criteria | Documented selection criteria | MVP Definition / Evaluation Plan | Pending |
+| A-205 | Define data schema and metadata requirements | Initial data and metadata schema | Data Requirements | Pending |
+| A-206 | Clean and normalize selected data | Cleaned and normalized dataset/corpus | Data Requirements | Pending |
+| A-207 | Extract and preserve source metadata | Metadata associated with every usable source | Traceability Requirements | Pending |
+| A-209 | Build the initial telecommunications knowledge corpus | Versioned initial corpus | FR — Technical Knowledge Retrieval | Pending |
+| A-210 | Validate corpus integrity and traceability | Corpus validation report | Verification / Data Requirements | Pending |
+| A-211 | Create development and evaluation source partitions | Controlled source partitions that reduce evaluation leakage | Evaluation Plan / Leakage Control | Pending |
+| A-212 | Version and document the prepared corpus | Reproducible corpus version and manifest | Reproducibility Requirements | Pending |
 
 ### WP-03 — Retrieval Baselines
 
-| Activity ID | Activity | Deliverable / Exit Criterion | Origin |
-|---|---|---|---|
-| A-301 | Define the retrieval evaluation task | Documented retrieval task and relevance criteria | Evaluation Plan / Research Question |
-| A-302 | Define the retrieval benchmark dataset | Evaluation queries with relevant evidence annotations | Evaluation Plan |
-| A-303 | Define retrieval metrics | Approved set of retrieval metrics | Evaluation Plan |
-| A-304 | Implement lexical retrieval baseline | Functional BM25 retriever | FR — Technical Knowledge Retrieval / Baseline Definition |
-| A-305 | Implement dense single-vector retrieval baseline | Functional dense retriever | FR — Technical Knowledge Retrieval / Research Question |
-| A-306 | Configure retrieval experiment conditions | Reproducible retrieval configuration | Experiment Protocol |
-| A-307 | Execute lexical retrieval baseline evaluation | BM25 benchmark results | Evaluation Plan |
-| A-308 | Execute dense retrieval baseline evaluation | Dense retrieval benchmark results | Evaluation Plan |
-| A-309 | Compare retrieval baseline performance | Comparative results table | Research Question |
-| A-310 | Analyze baseline retrieval failures | Documented failure cases and limitations | Research / Evaluation |
-| A-311 | Establish retrieval baseline reference | Approved baseline results for later comparison | Baseline Definition |
+| Activity ID | Activity | Deliverable / Exit Criterion | Origin | Status |
+|---|---|---|---|---|
+| A-301 | Define retrieval baseline scope and interface | Documented retrieval input/output contract and baseline scope | System Architecture / Retrieval Requirements | Pending |
+| A-302 | Implement lexical retrieval baseline | Functional BM25 retriever | FR — Technical Knowledge Retrieval / Baseline Definition | Pending |
+| A-303 | Implement dense single-vector retrieval baseline | Functional dense retriever | FR — Technical Knowledge Retrieval / Research Question | Pending |
+| A-304 | Define reproducible baseline configurations | Versioned BM25 and dense retrieval configurations | Reproducibility / Baseline Definition | Pending |
+| A-305 | Execute functional baseline retrieval tests | Both retrievers operate correctly on the prepared corpus | Verification / Integration Preparation | Pending |
+| A-306 | Establish retrieval implementation baseline | Versioned retrieval baselines ready for formal evaluation | Baseline Definition | Pending |
 
 ### WP-04 — RAG System
 
-| Activity ID | Activity | Deliverable / Exit Criterion | Origin |
-|---|---|---|---|
-| A-401 | Define the initial RAG pipeline | Documented RAG processing flow | System Architecture / FR — Technical Knowledge Retrieval |
-| A-402 | Define document segmentation strategy | Approved initial chunking strategy | Data Architecture / Retrieval Requirements |
-| A-403 | Implement document segmentation pipeline | Retrieval-ready document chunks | Data Requirements |
-| A-404 | Generate and store document embeddings | Versioned embedding representation | RAG Architecture |
-| A-405 | Build the vector retrieval index | Functional vector index | FR — Technical Knowledge Retrieval |
-| A-406 | Implement query processing and retrieval integration | Query-to-context retrieval pipeline | FR — Technical Knowledge Retrieval |
-| A-407 | Define retrieved-context construction strategy | Documented context assembly policy | RAG Architecture |
-| A-408 | Integrate retrieved evidence with the LLM | Functional retrieval-augmented generation pipeline | FR — RCA Assistance |
-| A-409 | Implement source citation and evidence traceability | Generated responses linked to retrieved evidence | Traceability Requirements |
-| A-410 | Implement retrieval failure handling | Defined behavior for insufficient or irrelevant evidence | Reliability / Safety Requirements |
-| A-411 | Implement basic RAG logging and observability | Logs for queries, retrieval results, context, and outputs | Evaluation / Reproducibility |
-| A-412 | Execute initial end-to-end RAG tests | Functional test results | Verification Plan |
-| A-413 | Analyze RAG failure cases | Documented retrieval/generation failure categories | Evaluation / Research |
-| A-414 | Establish RAG baseline version | Reproducible RAG baseline v1.0 | Baseline Definition |
+| Activity ID | Activity | Deliverable / Exit Criterion | Origin | Status |
+|---|---|---|---|---|
+| A-401 | Define the initial RAG pipeline | Documented retrieval-to-generation processing flow | System Architecture / FR — Technical Knowledge Retrieval | Pending |
+| A-402 | Define RAG retrieval configuration | Approved retriever selection and retrieval parameters for the initial RAG baseline | Retrieval Baseline / RAG Architecture | Pending |
+| A-403 | Integrate retrieval subsystem with the RAG pipeline | Functional query-to-evidence retrieval integration | FR — Technical Knowledge Retrieval | Pending |
+| A-404 | Define retrieved-context construction strategy | Documented context assembly policy | RAG Architecture | Pending |
+| A-405 | Implement context construction component | Functional evidence-to-context transformation | RAG Architecture / Interface Requirements | Pending |
+| A-406 | Preserve evidence provenance through RAG context construction | Source metadata retained through the RAG pipeline | Traceability Requirements | Pending |
+| A-407 | Implement retrieval failure and insufficient-evidence handling | Defined behavior for missing, irrelevant, or insufficient evidence | Reliability / Safety Requirements | Pending |
+| A-408 | Implement basic RAG logging and observability | Logs for queries, retrieval results, selected context, and processing metadata | Evaluation / Reproducibility | Pending |
+| A-409 | Integrate RAG context output with the RCA generation interface | RAG pipeline provides structured evidence context to the generation component | WP-05 / Interface Requirements | Pending |
+| A-410 | Execute functional end-to-end RAG pipeline tests | Successful query-to-context-to-generation-interface tests | Verification Plan | Pending |
+| A-411 | Establish RAG implementation baseline | Reproducible RAG pipeline v1.0 ready for formal evaluation | Baseline Definition | Pending |
 
 ### WP-05 — LLM and RCA Generation
 
-| Activity ID | Activity | Deliverable / Exit Criterion | Origin |
-|---|---|---|---|
-| A-501 | Define RCA generation task | Documented RCA generation objective and input/output contract | FR — RCA Assistance / Evaluation Plan |
-| A-502 | Define structured RCA output format | Approved RCA response schema | FR — RCA Assistance / Traceability |
-| A-503 | Define LLM selection criteria | Documented model selection criteria | Technical Constraints / Resource Feasibility |
-| A-504 | Select initial LLM candidate(s) | Approved initial model configuration | Resource Feasibility / Architecture |
-| A-505 | Establish non-RAG LLM baseline | Functional baseline using the selected LLM without retrieval | Baseline Definition / Research Evaluation |
-| A-506 | Define initial prompting and instruction strategy | Versioned prompt/instruction template | LLM Generation Design |
-| A-507 | Implement RCA generation component | Functional RCA generation module | FR — RCA Assistance |
-| A-508 | Integrate retrieved evidence into RCA generation | Evidence-grounded generation pipeline | RAG System / FR — RCA Assistance |
-| A-509 | Implement evidence attribution in RCA output | RCA conclusions linked to supporting evidence | Traceability Requirements |
-| A-510 | Implement uncertainty and abstention behavior | Defined behavior for insufficient or conflicting evidence | Safety / Reliability Requirements |
-| A-511 | Define RCA evaluation rubric | Approved scoring rubric for generated diagnoses | Evaluation Plan |
-| A-512 | Build RCA evaluation cases | Versioned RCA benchmark cases with reference evidence | Evaluation Plan |
-| A-513 | Execute baseline RCA evaluation | Baseline generation results | Baseline Definition |
-| A-514 | Execute evidence-grounded RCA evaluation | RAG-assisted RCA results | Evaluation Plan |
-| A-515 | Analyze RCA generation failures | Categorized generation and reasoning failures | Research / Evaluation |
-| A-516 | Establish RCA generation baseline version | Reproducible RCA generation baseline v1.0 | Experiment Protocol |
+| Activity ID | Activity | Deliverable / Exit Criterion | Origin | Status |
+|---|---|---|---|---|
+| A-501 | Define RCA generation task | Documented RCA generation objective and input/output contract | FR — RCA Assistance / System Requirements | Pending |
+| A-502 | Define structured RCA output format | Approved RCA response schema | FR — RCA Assistance / Traceability | Pending |
+| A-503 | Define LLM selection criteria | Documented model selection criteria | Technical Constraints / Resource Feasibility | Pending |
+| A-504 | Select initial LLM candidate | Approved initial model configuration | Resource Feasibility / Architecture | Pending |
+| A-505 | Define initial prompting and instruction strategy | Versioned RCA instruction template | LLM Generation Design | Pending |
+| A-506 | Implement RCA generation component | Functional structured RCA generation module | FR — RCA Assistance | Pending |
+| A-507 | Implement LLM-only RCA baseline | Functional RCA pipeline without retrieval | Baseline Definition / Research Evaluation | Pending |
+| A-508 | Integrate RAG context with RCA generation | Functional evidence-grounded RCA generation pipeline | WP-04 / FR — RCA Assistance | Pending |
+| A-509 | Implement evidence attribution in RCA output | Generated RCA claims linked to supporting evidence | Traceability Requirements | Pending |
+| A-510 | Implement uncertainty and abstention behavior | Defined response behavior for insufficient or conflicting evidence | Safety / Reliability Requirements | Pending |
+| A-511 | Execute functional RCA generation tests | Successful generation, schema, attribution, and abstention tests | Verification / Integration Preparation | Pending |
+| A-512 | Establish RCA generation implementation baseline | Reproducible RCA generation baseline v1.0 ready for formal evaluation | Baseline Definition / Reproducibility | Pending |
 
 ### WP-06 — Agentic Capabilities
 
-| Activity ID | Activity | Deliverable / Exit Criterion | Origin |
-|---|---|---|---|
-| A-601 | Define agent responsibilities and autonomy boundaries | Documented agent role and permitted responsibilities | System Requirements / AI Governance |
-| A-602 | Define agent state and execution lifecycle | Documented agent state model | System Architecture |
-| A-603 | Define agent planning strategy | Initial planning policy | Agent Architecture / Research |
-| A-604 | Define available agent tools | Approved tool registry and tool contracts | Functional Requirements / Security Requirements |
-| A-605 | Implement tool invocation interface | Functional standardized tool interface | Interface Requirements |
-| A-606 | Implement initial agent execution loop | Functional action-observation loop | FR — Agentic Assistance |
-| A-607 | Integrate retrieval as an agent tool | Agent can invoke technical knowledge retrieval | FR — Technical Knowledge Retrieval |
-| A-608 | Integrate RCA generation with agent workflow | Agent can generate evidence-supported RCA output | FR — RCA Assistance |
-| A-609 | Implement agent state and context management | Persistent task-state representation during execution | Architecture / Reliability |
-| A-610 | Implement execution limits and stopping conditions | Controlled termination behavior | Safety / Operational Requirements |
-| A-611 | Implement human approval checkpoints | Human-in-the-loop approval mechanism | Governance / Safety Requirements |
-| A-612 | Implement tool-result validation and error handling | Controlled handling of failed or invalid tool results | Reliability Requirements |
-| A-613 | Implement agent action logging and traceability | Traceable agent execution history | Traceability / Evaluation |
-| A-614 | Define agent evaluation scenarios | Versioned agent benchmark scenarios | Evaluation Plan |
-| A-615 | Execute agent capability evaluation | Agent evaluation results | Evaluation Plan |
-| A-616 | Analyze agent failure modes | Documented agent failure taxonomy | Research / Risk Management |
-| A-617 | Establish agent baseline version | Reproducible agent baseline v1.0 | Baseline Definition |
+| Activity ID | Activity | Deliverable / Exit Criterion | Origin | Status |
+|---|---|---|---|---|
+| A-601 | Define agent responsibilities and autonomy boundaries | Documented agent role, responsibilities, and permitted autonomy | System Requirements / AI Governance | Pending |
+| A-602 | Define agent state and execution lifecycle | Documented agent state model and execution lifecycle | System Architecture | Pending |
+| A-603 | Define agent planning and action-selection strategy | Documented initial planning and action policy | Agent Architecture / Research | Pending |
+| A-604 | Define available agent tools and semantic contracts | Approved tool registry with tool purposes, inputs, and outputs | Functional Requirements / Security Requirements | Pending |
+| A-605 | Implement standardized tool invocation interface | Functional interface for requesting and receiving tool executions | Interface Requirements | Pending |
+| A-606 | Implement agent execution loop | Functional action-observation execution loop | FR — Agentic Assistance | Pending |
+| A-607 | Integrate technical knowledge retrieval as an agent tool | Agent can invoke retrieval when additional evidence is required | FR — Technical Knowledge Retrieval | Pending |
+| A-608 | Integrate RCA generation with the agent workflow | Agent can request and produce evidence-supported RCA output | FR — RCA Assistance | Pending |
+| A-609 | Implement agent state and context management | Task state, observations, evidence, and tool results maintained during execution | Architecture / Reliability | Pending |
+| A-610 | Implement execution limits and stopping conditions | Controlled limits for steps, tool calls, failures, and termination | Safety / Operational Requirements | Pending |
+| A-611 | Implement human approval checkpoints | Actions requiring supervision are blocked until explicitly approved | Governance / Safety Requirements | Pending |
+| A-612 | Implement tool-result validation and error handling | Invalid, failed, or incomplete tool results handled without uncontrolled execution | Reliability Requirements | Pending |
+| A-613 | Implement agent action logging and traceability | Reconstructable agent action and observation history | Traceability / Evaluation | Pending |
+| A-614 | Execute functional agent workflow tests | Agent successfully completes controlled action-observation workflows | Verification / Integration Preparation | Pending |
+| A-615 | Establish agent implementation baseline | Reproducible agent baseline v1.0 ready for formal evaluation | Baseline Definition / Reproducibility | Pending |
 
 ### WP-07 — Tool Execution and Sandboxing
 
-| Activity ID | Activity | Deliverable / Exit Criterion | Origin |
-|---|---|---|---|
-| A-701 | Define tool execution threat model | Documented execution threats and trust boundaries | AI Governance / Security Requirements |
-| A-702 | Define sandbox security requirements | Approved isolation and execution constraints | Security / Operational Requirements |
-| A-703 | Select initial sandboxing mechanism | Documented sandbox technology decision | Architecture / ADR |
-| A-704 | Define tool permission model | Approved allowlist and permission rules | Security Requirements |
-| A-705 | Define sandbox input/output contract | Standardized execution request and result schema | Interface Requirements |
-| A-706 | Build isolated execution environment | Functional sandbox environment | Security Requirements |
-| A-707 | Implement sandbox execution controller | Controlled tool execution component | FR — Tool Execution |
-| A-708 | Implement CPU, memory, process, and execution-time limits | Enforced resource limits | Reliability / Security Requirements |
-| A-709 | Implement filesystem isolation and temporary workspace handling | Controlled filesystem access | Security Requirements |
-| A-710 | Implement network access restrictions | Controlled or disabled sandbox network access | Security Requirements |
-| A-711 | Implement privilege and syscall restrictions | Reduced execution privileges and syscall surface | Security Requirements |
-| A-712 | Implement execution timeout and termination mechanisms | Reliable cancellation of long-running tasks | Operational / Reliability Requirements |
-| A-713 | Capture stdout, stderr, exit status, and execution metadata | Structured tool execution results | Interface / Traceability Requirements |
-| A-714 | Integrate sandbox with agent tool interface | Agent tools execute through sandbox controller | Agent Architecture |
-| A-715 | Implement sandbox execution logging and audit trail | Traceable execution records | Traceability / Governance |
-| A-716 | Define sandbox verification tests | Approved isolation and resource-limit test cases | Verification Plan |
-| A-717 | Execute sandbox security and isolation tests | Documented verification results | Verification Plan |
-| A-718 | Measure sandbox execution overhead | Performance benchmark results | Performance / Evaluation |
-| A-719 | Analyze sandbox failure modes | Documented failure and security limitations | Risk / Evaluation |
-| A-720 | Establish sandbox baseline version | Reproducible sandbox baseline v1.0 | Architecture / Reproducibility |
+| Activity ID | Activity | Deliverable / Exit Criterion | Origin | Status |
+|---|---|---|---|---|
+| A-701 | Define tool execution threat model | Documented execution threats, assets, and trust boundaries | AI Governance / Security Requirements | Pending |
+| A-702 | Define sandbox security and isolation requirements | Approved execution, isolation, and resource-control requirements | Security / Operational Requirements | Pending |
+| A-703 | Select sandboxing mechanism and document architecture decision | Approved sandbox technology decision and ADR | Architecture / ADR | Pending |
+| A-704 | Define sandbox permission and execution policy | Approved tool allowlist, filesystem, network, and privilege policies | Security Requirements | Pending |
+| A-705 | Define sandbox execution input/output contract | Standardized execution request and result schema | Interface Requirements | Pending |
+| A-706 | Build isolated execution environment | Functional isolated execution environment | Security Requirements | Pending |
+| A-707 | Implement sandbox execution controller | Controlled component for starting, monitoring, and terminating executions | FR — Tool Execution | Pending |
+| A-708 | Implement resource and runtime controls | CPU, memory, process, and execution-time limits enforced | Reliability / Security Requirements | Pending |
+| A-709 | Implement isolation and privilege controls | Filesystem, network, privilege, and syscall restrictions enforced | Security Requirements | Pending |
+| A-710 | Implement structured execution results, logging, and audit trail | stdout, stderr, exit status, metadata, and execution records available | Traceability / Governance | Pending |
+| A-711 | Execute functional sandbox and isolation tests | Sandbox passes controlled isolation, resource-limit, and termination tests | Verification / Integration Preparation | Pending |
+| A-712 | Establish sandbox implementation baseline | Reproducible sandbox baseline v1.0 ready for integration and formal verification | Architecture / Reproducibility | Pending |
 
 ### WP-08 — System Integration
 
-| Activity ID | Activity | Deliverable / Exit Criterion | Origin |
-|---|---|---|---|
-| A-801 | Define system integration strategy | Documented integration sequence and component dependencies | System Architecture / Integration Planning |
-| A-802 | Define component interface contracts | Approved interfaces between retrieval, generation, agent, tools, and sandbox | Interface Requirements |
-| A-803 | Establish integrated development environment | Reproducible environment for running integrated components | Deployment / Reproducibility |
-| A-804 | Integrate knowledge corpus with retrieval subsystem | Retrieval subsystem operating on project corpus | WP-02 / WP-03 |
-| A-805 | Integrate retrieval subsystem with RAG pipeline | Functional retrieval-to-context pipeline | WP-03 / WP-04 |
-| A-806 | Integrate RAG pipeline with RCA generation component | Functional evidence-grounded RCA generation flow | WP-04 / WP-05 |
-| A-807 | Integrate RCA generation with agent workflow | Agent can invoke and use RCA generation capability | WP-05 / WP-06 |
-| A-808 | Integrate agent with tool execution interface | Agent can invoke approved tools through standardized interface | WP-06 / WP-07 |
-| A-809 | Integrate sandbox execution controller | Tool calls execute through isolated sandbox environment | WP-07 / Security Requirements |
-| A-810 | Integrate human approval and control mechanisms | Sensitive actions respect approval boundaries | Governance / Safety Requirements |
-| A-811 | Integrate system-wide logging and traceability | Unified trace across retrieval, LLM, agent, and tool actions | Traceability Requirements |
-| A-812 | Implement configuration and component version tracking | Reproducible integrated configuration | Reproducibility Requirements |
-| A-813 | Implement integrated error propagation and recovery | Controlled handling of failures between components | Reliability Requirements |
-| A-814 | Execute incremental integration tests | Successful subsystem integration test results | Verification Plan |
-| A-815 | Execute complete end-to-end system test | Functional incident-to-RCA workflow | System Requirements |
-| A-816 | Measure integrated system latency and resource usage | Initial system-level performance results | Performance Requirements |
-| A-817 | Analyze integration failures and emergent behavior | Documented integration issues and corrective actions | Evaluation / Risk Management |
-| A-818 | Establish integrated system baseline | Reproducible integrated MVP baseline v1.0 | Configuration Management |
+| Activity ID | Activity | Deliverable / Exit Criterion | Origin | Status |
+|---|---|---|---|---|
+| A-801 | Define system integration strategy and sequence | Documented integration sequence and dependencies | System Architecture / Integration Planning | Pending |
+| A-802 | Review and finalize component interface contracts | Compatible and approved interfaces between system components | Interface Requirements / Interface Management | Pending |
+| A-803 | Integrate knowledge corpus with retrieval subsystem | Retrieval subsystem operates correctly on the prepared project corpus | WP-02 / WP-03 | Pending |
+| A-804 | Integrate retrieval subsystem with RAG pipeline | Functional query-to-evidence-to-context flow | WP-03 / WP-04 | Pending |
+| A-805 | Integrate RAG context with RCA generation | Functional evidence-grounded RCA generation flow | WP-04 / WP-05 | Pending |
+| A-806 | Integrate RCA generation with agent workflow | Agent can invoke and consume RCA generation capability | WP-05 / WP-06 | Pending |
+| A-807 | Integrate agent tool interface with sandbox execution controller | Agent tool calls execute through the controlled sandbox layer | WP-06 / WP-07 | Pending |
+| A-808 | Integrate human approval and control mechanisms | Actions requiring approval respect defined human-in-the-loop controls | Governance / Safety Requirements | Pending |
+| A-809 | Integrate system-wide logging and trace correlation | Retrieval, generation, agent, and sandbox events can be correlated end-to-end | Traceability Requirements | Pending |
+| A-810 | Implement cross-component error propagation and recovery | Component failures are propagated and handled in a controlled manner | Reliability Requirements | Pending |
+| A-811 | Execute incremental integration tests | All planned subsystem integration pairs pass functional integration tests | Integration Plan | Pending |
+| A-812 | Execute complete end-to-end system test | Incident-to-RCA workflow operates across the complete integrated system | System Requirements | Pending |
+| A-813 | Resolve critical integration defects and establish integrated system baseline | Critical integration defects resolved and reproducible integrated MVP baseline established | Configuration Management / Integration | Pending |
 
 ### WP-09 — Evaluation and Experiments
 
-| Activity ID | Activity | Deliverable / Exit Criterion | Origin |
-|---|---|---|---|
-| A-901 | Define research questions and evaluation objectives | Approved research questions and evaluation objectives | Project Methodology / Evaluation Plan |
-| A-902 | Define experimental hypotheses | Documented testable hypotheses | Research Methodology |
-| A-903 | Define experimental systems and baselines | Approved comparison matrix | Baseline Definition |
-| A-904 | Define evaluation datasets and scenario subsets | Versioned evaluation dataset and scenario partitions | Evaluation Plan / Data Requirements |
-| A-905 | Define retrieval evaluation metrics | Approved retrieval metric set | Retrieval Evaluation |
-| A-906 | Define RCA generation metrics and rubric | Approved RCA evaluation rubric | RCA Evaluation |
-| A-907 | Define agent evaluation metrics | Approved agent capability metrics | Agent Evaluation |
-| A-908 | Define system-level performance metrics | Approved latency/resource/cost metrics | Performance Requirements |
-| A-909 | Define experimental controls and fixed variables | Reproducible experiment configuration | Experiment Protocol |
-| A-910 | Implement experiment execution harness | Reproducible experiment runner | Reproducibility Requirements |
-| A-911 | Execute retrieval experiments | Retrieval experiment results | Research Question / WP-03 |
-| A-912 | Execute LLM-only RCA baseline experiments | Baseline RCA results | WP-05 |
-| A-913 | Execute RAG-assisted RCA experiments | RAG RCA results | WP-04 / WP-05 |
-| A-914 | Execute agentic system experiments | Agentic RCA results | WP-06 |
-| A-915 | Execute robustness and failure-case experiments | Robustness and stress-test results | Risk / Evaluation |
-| A-916 | Measure latency and computational resource usage | Performance benchmark results | Performance / Resource Feasibility |
-| A-917 | Perform comparative statistical analysis | Comparative experiment analysis | Research Methodology |
-| A-918 | Conduct qualitative failure analysis | Categorized failure cases and observations | Research / Evaluation |
-| A-919 | Document experimental limitations and threats to validity | Threats-to-validity analysis | Research Methodology |
-| A-920 | Establish final experimental results baseline | Reproducible experiment results package | Project Evaluation |
+| Activity ID | Activity | Deliverable / Exit Criterion | Origin | Status |
+|---|---|---|---|---|
+| A-901 | Define research questions and experimental hypotheses | Approved research questions, evaluation objectives, and testable hypotheses | Project Methodology / Research Methodology | Pending |
+| A-902 | Define experimental systems and baselines | Approved comparison matrix identifying baseline and proposed system configurations | Baseline Definition / Evaluation Plan | Pending |
+| A-903 | Define evaluation datasets, queries, and scenarios | Versioned evaluation set with relevance evidence, RCA references, and agent scenarios | Evaluation Plan / Data Requirements | Pending |
+| A-904 | Define evaluation framework and metrics | Approved retrieval, RCA, agent, and system-level metrics and scoring procedures | Evaluation Plan | Pending |
+| A-905 | Define experimental protocol, controls, and fixed variables | Reproducible experiment protocol and controlled configuration | Experiment Protocol / Reproducibility | Pending |
+| A-906 | Implement experiment execution and result-capture harness | Reproducible experiment runner with configuration, output, and metadata capture | Reproducibility Requirements | Pending |
+| A-907 | Execute retrieval baseline experiments | BM25 and dense single-vector retrieval benchmark results | Research Question / WP-03 | Pending |
+| A-908 | Execute LLM-only and RAG-assisted RCA experiments | Comparable RCA results for non-retrieval and RAG configurations | WP-04 / WP-05 | Pending |
+| A-909 | Execute agentic system experiments | Agentic workflow experiment results | WP-06 / Research Questions | Pending |
+| A-910 | Execute robustness and controlled failure-case experiments | Results for missing, conflicting, irrelevant, or failed evidence/tool conditions | Risk / Evaluation | Pending |
+| A-911 | Measure end-to-end latency and computational resource usage | System performance and resource benchmark results | Performance / Resource Feasibility | Pending |
+| A-912 | Perform comparative and statistical analysis | Comparative analysis with appropriate uncertainty/statistical treatment | Research Methodology | Pending |
+| A-913 | Conduct qualitative and component-level failure analysis | Categorized retrieval, generation, agent, and execution failure cases | Research / Evaluation | Pending |
+| A-914 | Evaluate research hypotheses and answer research questions | Evidence-based findings for each defined hypothesis and research question | Research Methodology | Pending |
+| A-915 | Document experimental limitations and threats to validity | Explicit internal, external, construct, and experimental limitations | Research Methodology | Pending |
+| A-916 | Establish final experimental results baseline | Versioned and reproducible experiment results package | Project Evaluation / Reproducibility | Pending |
 
 ### WP-10 — Verification and Validation
 
-| Activity ID | Activity | Deliverable / Exit Criterion | Origin |
-|---|---|---|---|
-| A-1001 | Review the baselined requirements set | Approved requirements set ready for verification | System Requirements / Traceability |
-| A-1002 | Define verification methods for each requirement | Requirements Verification Matrix | Verification Plan |
-| A-1003 | Define validation objectives and stakeholder expectations | Validation criteria and expected operational outcomes | Problem Definition / Need / Scope |
-| A-1004 | Define verification test procedures | Approved verification procedures | Verification Plan |
-| A-1005 | Define validation scenarios | Representative 5G troubleshooting scenarios | Validation Plan / MVP Definition |
-| A-1006 | Prepare verification and validation environment | Ready and reproducible V&V environment | System Architecture / Deployment |
-| A-1007 | Verify functional requirements | Functional verification results | FR Requirements |
-| A-1008 | Verify data and knowledge requirements | Data verification results | Data Requirements |
-| A-1009 | Verify interface requirements | Interface verification results | Interface Requirements |
-| A-1010 | Verify security and sandbox requirements | Security verification results | Security Requirements |
-| A-1011 | Verify performance requirements | Performance verification results | Performance Requirements |
-| A-1012 | Verify operational and reliability requirements | Operational verification results | Operational / Reliability Requirements |
-| A-1013 | Execute end-to-end system verification | System-level verification results | System Requirements |
-| A-1014 | Record requirement compliance status | Updated Requirements Traceability Matrix | Traceability |
-| A-1015 | Record and analyze verification discrepancies | Verification discrepancy log | Verification Process |
-| A-1016 | Correct verified nonconformities | Resolved critical requirement violations | Corrective Action |
-| A-1017 | Re-execute affected verification procedures | Successful regression verification | Verification Process |
-| A-1018 | Execute system validation scenarios | Validation results under representative conditions | Validation Plan |
-| A-1019 | Evaluate system usefulness for 5G troubleshooting | Evidence that intended operational need is or is not satisfied | Problem Definition / Need |
-| A-1020 | Analyze validation anomalies and limitations | Validation findings and limitations | Validation Process |
-| A-1021 | Produce Verification and Validation Report | Approved V&V report | Project Acceptance |
-| A-1022 | Establish verified and validated MVP baseline | MVP accepted against defined criteria | Acceptance / Configuration Management |
+| Activity ID | Activity | Deliverable / Exit Criterion | Origin | Status |
+|---|---|---|---|---|
+| A-1001 | Review and baseline the requirements set for verification | Approved and versioned requirements baseline | System Requirements / Traceability | Pending |
+| A-1002 | Define verification matrix, methods, and procedures | Requirements Verification Matrix with verification method, procedure, and acceptance criteria for each applicable requirement | Verification Plan | Pending |
+| A-1003 | Define validation objectives and representative operational scenarios | Approved validation objectives and 5G troubleshooting scenarios derived from stakeholder needs | Problem Definition / Need / MVP Definition | Pending |
+| A-1004 | Prepare the verification and validation environment | Reproducible V&V configuration, datasets, tools, and system baseline ready for execution | Deployment / Verification Plan | Pending |
+| A-1005 | Execute functional, data, and interface verification | Verified FR, data, knowledge, and interface requirements with recorded evidence | System Requirements | Pending |
+| A-1006 | Execute security and sandbox verification | Verified security, isolation, permission, and execution-control requirements | Security Requirements / WP-07 | Pending |
+| A-1007 | Execute performance, operational, and reliability verification | Verified performance, operational, and reliability requirements | Performance / Operational Requirements | Pending |
+| A-1008 | Execute end-to-end system verification | Integrated system demonstrates compliance with applicable system-level requirements | System Requirements | Pending |
+| A-1009 | Record requirement compliance and verification evidence | Updated Requirements Traceability Matrix with PASS / FAIL / BLOCKED status and evidence | Traceability | Pending |
+| A-1010 | Resolve verification discrepancies and execute regression verification | Critical nonconformities corrected and affected verification procedures successfully repeated | Verification Process / Corrective Action | Pending |
+| A-1011 | Execute system validation scenarios | Representative 5G troubleshooting scenarios completed under defined conditions | Validation Plan | Pending |
+| A-1012 | Evaluate fulfillment of the intended troubleshooting need | Evidence-based assessment of whether the MVP satisfies defined stakeholder needs within project scope | Problem Definition / Need | Pending |
+| A-1013 | Analyze validation anomalies, limitations, and unresolved gaps | Documented validation findings and limitations | Validation Process | Pending |
+| A-1014 | Produce Verification and Validation Report | Complete V&V report with requirements compliance and validation findings | Project Acceptance | Pending |
+| A-1015 | Establish V&V status baseline | Verification and validation evidence frozen for the evaluated MVP configuration | Configuration Management / Acceptance | Pending |
 
 ### WP-11 — Deployment and Reproducibility
 
-| Activity ID | Activity | Deliverable / Exit Criterion | Origin |
-|---|---|---|---|
-| A-1101 | Define deployment architecture for the MVP | Approved deployment topology | System Architecture / Operational Constraints |
-| A-1102 | Define runtime environments and dependencies | Documented environment specification | Reproducibility Requirements |
-| A-1103 | Define configuration and secrets management approach | Approved configuration strategy | Security / Deployment Requirements |
-| A-1104 | Containerize application components | Functional Docker images | Deployment Requirements |
-| A-1105 | Define container orchestration for local MVP execution | Working Docker Compose configuration | System Integration / Deployment |
-| A-1106 | Pin software and model dependencies | Version-controlled dependency definitions | Reproducibility Requirements |
-| A-1107 | Define model, corpus, and configuration version identifiers | Versioning convention for experimental artifacts | Experiment Protocol / Traceability |
-| A-1108 | Implement environment initialization procedure | Repeatable setup procedure | Reproducibility Requirements |
-| A-1109 | Implement persistent storage and volume handling | Controlled persistence for required system data | Data / Operational Requirements |
-| A-1110 | Implement health and readiness checks | Observable component health status | Reliability Requirements |
-| A-1111 | Define logging and runtime artifact storage | Persistent logs and experiment outputs | Traceability / Evaluation |
-| A-1112 | Create reproducible system build procedure | Repeatable build from repository source | Reproducibility Requirements |
-| A-1113 | Create reproducible system startup procedure | System can be started from documented instructions | Deployment Requirements |
-| A-1114 | Execute clean-environment deployment test | Successful deployment from a clean environment | Verification Plan |
-| A-1115 | Execute reproducibility test | Equivalent configuration produces repeatable system setup | Reproducibility Requirements |
-| A-1116 | Document deployment and execution procedure | Deployment/runbook documentation | Final Documentation |
-| A-1117 | Package MVP release artifacts | Versioned project release package | Configuration Management |
-| A-1118 | Establish deployable MVP baseline | Reproducible deployment baseline v1.0 | Project Acceptance |
+| Activity ID | Activity | Deliverable / Exit Criterion | Origin | Status |
+|---|---|---|---|---|
+| A-1101 | Define MVP deployment topology | Approved deployment topology identifying runtime components and execution boundaries | System Architecture / Operational Constraints | Pending |
+| A-1102 | Define runtime environment and dependency policy | Documented OS, runtime, model, software, and dependency requirements | Reproducibility Requirements | Pending |
+| A-1103 | Define configuration and secrets management approach | Approved configuration strategy with sensitive values excluded from source control | Security / Deployment Requirements | Pending |
+| A-1104 | Define configuration-item and artifact version identifiers | Versioning convention for code, models, corpus, prompts, and system configuration | Configuration Management / Traceability | Pending |
+| A-1105 | Containerize required MVP components | Functional and version-controlled Docker images | Deployment Requirements | Pending |
+| A-1106 | Implement local orchestration, persistence, and runtime storage | Working local orchestration with required volumes and persistent artifacts | Deployment / Data Requirements | Pending |
+| A-1107 | Implement health, readiness, and basic operational checks | Runtime components expose observable operational status | Reliability Requirements | Pending |
+| A-1108 | Create reproducible build and environment initialization procedure | System can be rebuilt from repository source and controlled dependencies | Reproducibility Requirements | Pending |
+| A-1109 | Create reproducible startup and execution procedure | Integrated MVP can be started and operated using a documented procedure | Deployment Requirements | Pending |
+| A-1110 | Execute clean-environment deployment and reproducibility tests | System successfully rebuilt and executed from a clean controlled environment | Verification / Reproducibility Requirements | Pending |
+| A-1111 | Document deployment and execution runbook | Complete deployment, configuration, startup, shutdown, and troubleshooting instructions | Technical Data Management | Pending |
+| A-1112 | Establish deployable and reproducible MVP baseline | Versioned deployment configuration ready for final project baseline | Configuration Management | Pending |
 
 ### WP-12 — Final Documentation and Presentation
 
-| Activity ID | Activity | Deliverable / Exit Criterion | Origin |
-|---|---|---|---|
-| A-1201 | Review and consolidate project documentation | Complete and internally consistent documentation set | Technical Data Management / Project Plan |
-| A-1202 | Update final system architecture documentation | Architecture reflecting the implemented MVP | System Architecture / As-Built System |
-| A-1203 | Update requirements traceability matrix | Complete requirement-to-implementation-to-verification traceability | Requirements Traceability |
-| A-1204 | Consolidate experimental results | Final tables, metrics, plots, and experiment summaries | WP-09 / Evaluation Plan |
-| A-1205 | Consolidate verification and validation results | Final V&V evidence and acceptance status | WP-10 |
-| A-1206 | Document final system limitations | Explicit technical, experimental, and operational limitations | Evaluation / Validation |
-| A-1207 | Document future work | Prioritized post-MVP improvements and research opportunities | Project Scope / Research Findings |
-| A-1208 | Prepare final technical report | Complete final project report | Project Deliverables |
-| A-1209 | Complete repository README and usage documentation | Repository can be understood and executed from documentation | Reproducibility / Deployment |
-| A-1210 | Prepare final architecture and results diagrams | Approved visual material for report and presentation | Communication / Documentation |
-| A-1211 | Prepare demonstration scenario | Stable and repeatable end-to-end demo | MVP Definition / Validation |
-| A-1212 | Execute demonstration rehearsal | Successful rehearsal without critical failures | Presentation Readiness |
-| A-1213 | Prepare final presentation | Completed presentation deck | Project Deliverables |
-| A-1214 | Review technical claims and supporting evidence | All reported claims traceable to results or references | Research / Technical Data Management |
-| A-1215 | Freeze final project baseline | Final code, documentation, models/configuration, and results identified | Configuration Management |
-| A-1216 | Create final repository release and Git tag | Versioned final project release | Configuration Management |
-| A-1217 | Deliver final project presentation and demonstration | Project formally presented | Project Completion |
-| A-1218 | Archive final project artifacts | Final documentation, results, configurations, and evidence preserved | Technical Data Management |
+| Activity ID | Activity | Deliverable / Exit Criterion | Origin | Status |
+|---|---|---|---|---|
+| A-1201 | Review and consolidate as-built project documentation | Complete and internally consistent documentation reflecting the implemented MVP | Technical Data Management / Project Plan | Pending |
+| A-1202 | Finalize system architecture, interfaces, and technical diagrams | Final as-built architecture and supporting diagrams | System Architecture / As-Built System | Pending |
+| A-1203 | Consolidate traceability, experimental results, and V&V evidence | Final traceability matrix, experiment evidence, and V&V results package | WP-09 / WP-10 / Requirements Traceability | Pending |
+| A-1204 | Document final limitations, conclusions, and future work | Explicit findings, limitations, conclusions, and prioritized post-MVP work | Evaluation / Validation / Research Findings | Pending |
+| A-1205 | Prepare final technical report | Complete final project report supported by project evidence and references | Project Deliverables | Pending |
+| A-1206 | Complete repository README and user/deployment guidance | Repository can be understood, built, executed, and evaluated from its documentation | WP-11 / Reproducibility | Pending |
+| A-1207 | Prepare final demonstration scenario | Stable and repeatable end-to-end demonstration scenario | MVP Definition / Validation | Pending |
+| A-1208 | Prepare final presentation | Completed presentation based on final architecture, results, and conclusions | Project Deliverables | Pending |
+| A-1209 | Conduct final technical review and demonstration rehearsal | Technical claims verified against evidence and demonstration completed without critical failures | Research / Presentation Readiness | Pending |
+| A-1210 | Freeze final project baseline | Final code, documentation, configurations, models, corpus versions, and results identified | Configuration Management | Pending |
+| A-1211 | Create final repository release and Git tag | Versioned and identifiable final project release | Configuration Management | Pending |
+| A-1212 | Deliver project and archive final artifacts | Final presentation/demo completed and project artifacts preserved | Project Completion / Technical Data Management | Pending |
 
 ## 4. Activity Definition
 ## 5. Activity Dependencies
