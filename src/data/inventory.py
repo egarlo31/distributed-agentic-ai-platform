@@ -23,32 +23,21 @@ class DataInventory:
         )
 
     def _find_raw_data_path(self) -> Path:
-        """Locate the directory associated with the data source."""
+        raw_dir = self.project_root / "data" / "raw"
 
-        excluded_dirs = {
-            ".git",
-            ".venv",
-            "__pycache__",
-            ".ipynb_checkpoints",
-        }
+        if not raw_dir.is_dir():
+            raise FileNotFoundError(f"Raw data directory not found: {raw_dir}")
 
         matches = [
-            directory
-            for directory in self.project_root.rglob("*")
-            if directory.is_dir()
-               and not any(part in excluded_dirs for part in directory.parts)
-               and directory.name.lower().startswith(self.source_id.lower())
+            path for path in raw_dir.iterdir()
+            if path.is_dir() and path.name.startswith(self.source_id)
         ]
 
         if not matches:
-            raise FileNotFoundError(
-                f"No data directory found for {self.source_id}."
-            )
+            raise FileNotFoundError(f"No raw data found for {self.source_id}")
 
         if len(matches) > 1:
-            raise RuntimeError(
-                f"Multiple directories found for {self.source_id}: {matches}"
-            )
+            raise RuntimeError(f"Multiple raw sources found: {matches}")
 
         return matches[0]
 
