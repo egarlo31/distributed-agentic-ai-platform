@@ -1,4 +1,5 @@
 from pathlib import Path
+import pandas as pd
 
 
 class DataInventory:
@@ -42,17 +43,37 @@ class DataInventory:
         return matches[0]
 
     def discover_file_extensions(self) -> set[str]:
-        """Return the file extensions present in the raw data directory."""
-
-        extensions = {
-            file.suffix.lower()
-            for file in self.raw_data_path.iterdir()
-            if file.is_file() and file.suffix
+        """Discover file extensions recursively within the data source."""
+        return {
+            path.suffix.lower()
+            for path in self.raw_data_path.rglob("*")
+            if path.is_file() and path.suffix and path.name != "README.md"
         }
 
-        if not extensions:
-            raise ValueError(
-                f"No file extensions were found in: {self.raw_data_path}"
-            )
+    def file_inventory(self) -> pd.DataFrame:
+        """Return a recursive inventory of the raw data files."""
 
-        return extensions
+        records = []
+
+        for path in self.raw_data_path.rglob("*"):
+            if not path.is_file():
+                continue
+
+            relative_path = path.relative_to(self.raw_data_path)
+
+            if path.name == "README.md" or any(
+                    part.startswith(".") for part in relative_path.parts
+            ):
+                continue
+
+            records.append({
+                "file": path.name,
+                "relative_path": relative_path.as_posix(),
+                "extension": path.suffix.lower() or "(none)",
+                "size_bytes": path.stat().st_size
+            })
+
+        return pd.DataFrame(
+            records,
+            columns=["file", "relative_path", "extension", "size_bytes"]
+        ).sort_values("relative_path").reset_index(drop=True)
