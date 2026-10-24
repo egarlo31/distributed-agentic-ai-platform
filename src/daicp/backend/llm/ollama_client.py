@@ -2,7 +2,6 @@ import ollama
 
 
 model = "qwen3:8b"
-prompt = "que significa nada"
 
 class Ollama_Client:
     """Client for local LLM inference through Ollama."""

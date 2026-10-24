@@ -1,0 +1,5 @@
+# Run from the repository root: python -m pip install -r requirements.txt
+# Uses the existing package, notebook and lint dependencies declared in pyproject.toml.
+-e .[audit,dev]
+
+# SRC-001 PCAP audits also use capinfos and tshark, installed outside pip.

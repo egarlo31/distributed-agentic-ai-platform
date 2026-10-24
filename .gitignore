@@ -81,3 +81,9 @@ venv/
 logs/
 tmp/
 .cache/
+
+# Packaging and import-linter artifacts
+*.egg-info/
+build/
+dist/
+.import_linter_cache/

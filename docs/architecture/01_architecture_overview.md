@@ -53,12 +53,12 @@ flowchart TB
 
         RAW[("Raw Datasets<br/>SRC-001 / SRC-002")]
         AUDIT["Dataset Audit<br/>notebooks/data_audit"]
-        PREP["Data Preparation<br/>src/data"]
+        PREP["Data Preparation<br/>src/daicp/offline/data"]
         INCIDENTS[("Prepared Incidents")]
         LABELS[("Evaluation References")]
 
         DOCS["Approved Technical<br/>Documentation"]
-        INDEX["Knowledge Indexing<br/>src/indexing"]
+        INDEX["Knowledge Indexing<br/>Planned offline workflow"]
         KB[("Knowledge Index")]
 
         RAW --> AUDIT --> PREP

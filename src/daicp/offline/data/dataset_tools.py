@@ -7,7 +7,7 @@ import re
 from collections import Counter, defaultdict
 from datetime import datetime, timedelta, timezone
 
-from src.data.profiling import Quality
+from .profiling import Quality
 
 
 class PacketTools:
