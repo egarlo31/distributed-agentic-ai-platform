@@ -1,3 +1,4 @@
+"""Inspect source schemas, missingness and quality without changing raw values."""
 import json
 from itertools import islice
 from pathlib import Path
@@ -5,6 +6,8 @@ from pathlib import Path
 import pandas as pd
 
 class Schema:
+    """Preview JSON, text and CSV schemas for source assessment."""
+
 
     def __init__(self, nrows: int = 50) -> None:
         self.nrows = nrows
@@ -38,6 +41,8 @@ class Schema:
         })
 
 class Quality:
+    """Compute dataset quality summaries and validate fault-label consistency."""
+
 
     @staticmethod
     def profile_dataframe(df: pd.DataFrame, name: str, unique_key: str | None = None) -> dict:

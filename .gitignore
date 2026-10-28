@@ -1,34 +1,36 @@
+
 # ==========================================
 # Raw data
 # ==========================================
 
-data/raw/**
-
-# Keep directory structure and documentation
-!data/raw/**/
-!data/raw/**/README.md
+/data/raw/**
+!/data/raw/**/
+!/data/raw/**/README.md
+!/data/raw/**/.gitkeep
 
 
 # ==========================================
-# Intermediate / generated data
+# Intermediate / processed data
 # ==========================================
 
-data/interim/**
-!data/interim/**/
-!data/interim/**/README.md
+/data/interim/**
+!/data/interim/**/
+!/data/interim/**/README.md
+!/data/interim/**/.gitkeep
 
-data/processed/**
-!data/processed/**/
-!data/processed/**/README.md
+/data/processed/**
+!/data/processed/**/
+!/data/processed/**/README.md
+!/data/processed/**/.gitkeep
 
 
 # ==========================================
 # Models / embeddings / vector stores
 # ==========================================
 
-models/
-embeddings/
-vector_store/
+/models/
+/embeddings/
+/vector_store/
 
 *.pt
 *.pth
@@ -36,16 +38,51 @@ vector_store/
 *.safetensors
 *.gguf
 
+# Vector database artifacts
+*.faiss
+*.index
+*.npy
+*.npz
+
 
 # ==========================================
-# Python
+# Python environments / cache
 # ==========================================
 
 __pycache__/
 *.py[cod]
+*.pyo
 
 .venv/
 venv/
+env/
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pyright/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+
+# ==========================================
+# Python packaging
+# ==========================================
+
+*.egg-info/
+*.egg/
+build/
+dist/
+pip-wheel-metadata/
+
+
+# ==========================================
+# Import Linter
+# ==========================================
+
+.import_linter_cache/
 
 
 # ==========================================
@@ -55,6 +92,10 @@ venv/
 .env
 .env.*
 !.env.example
+
+*.pem
+*.key
+*.p12
 
 
 # ==========================================
@@ -69,6 +110,8 @@ venv/
 # ==========================================
 
 .DS_Store
+Thumbs.db
+
 .idea/
 .vscode/
 
@@ -78,12 +121,11 @@ venv/
 # ==========================================
 
 *.log
-logs/
-tmp/
+/logs/
+/tmp/
 .cache/
 
-# Packaging and import-linter artifacts
-*.egg-info/
-build/
-dist/
-.import_linter_cache/
+*.tmp
+*.bak
+*.swp
+*~

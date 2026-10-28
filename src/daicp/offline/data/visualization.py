@@ -1,9 +1,12 @@
+"""Build offline audit figures and dashboards from previously inspected data."""
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
 class DataVisualization:
+    """Render Plotly views of source inventories, quality and operational coverage."""
+
 
     @staticmethod
     def plot_file_distribution(inventory: pd.DataFrame) -> go.Figure:

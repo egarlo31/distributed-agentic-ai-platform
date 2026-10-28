@@ -1,3 +1,4 @@
+"""Dataset-specific audit utilities; evaluation labels remain offline."""
 import json
 import shutil
 from pathlib import Path
@@ -11,6 +12,8 @@ from .profiling import Quality
 
 
 class PacketTools:
+    """Locate external packet-audit executables without running them."""
+
     def __init__(self, *names: str) -> None:
         self.names = names
 
@@ -25,6 +28,8 @@ class PacketTools:
         return tools
 
 class CoreOps:
+    """Inspect CoreOps quality, temporal consistency, logs and metric coverage."""
+
 
     @staticmethod
     def audit_coreops_quality(root: Path) -> dict[str, pd.DataFrame]:
